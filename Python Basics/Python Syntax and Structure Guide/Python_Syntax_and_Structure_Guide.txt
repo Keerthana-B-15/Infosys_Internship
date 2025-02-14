@@ -1,0 +1,163 @@
+1.  print("Hello,")
+  print("Welcome to Python!")
+  
+    Welcome to Python!
+    Hello,
+    
+    Hello,
+    Welcome to Python!
+    
+    Welcome to Python! Hello,
+    
+    Hello, Welcome to Python!
+
+Ans option 2
+
+2. Write the correct code
+
+  Below is incomplete code. Write the complete code to display the output as shown in the input box below.
+  
+  _____(____, "Welcome to DataWars!")
+  Expected output:
+  Hello, Welcome to DataWars!
+
+ans print("Hello,", "Welcome to DataWars!")
+
+3. Which of the following is the correct way to print “Hi there!” in Python 3
+
+  Select the correct way to print “Hi there!” in Python 3.
+  
+  
+  print "Hi there!"
+  
+  echo("Hi there!")
+  
+  output("Hi there!")
+  
+  print("Hi there!")
+
+ans option 4
+
+4. Executing Comments
+  
+  True or False: Comments are executed by Python when the program runs.
+  True
+  False
+
+ans False
+
+5. What is the correct error
+
+  For the following code, what is the correct error message?
+  
+  # This line is a comment
+  print("This will print")
+  This line is not a comment and not Python code
+  
+  It will produce a TypeError because the code is trying to print a string without quotes.
+  
+  It will produce a ValueError because the code is trying to print a string without quotes.
+  
+  It will produce a SyntaxError: invalid syntax because This line is not a comment... is not valid code.
+  
+  It will produce an IndentationError because the code is not properly indented.
+ans option 3
+
+6. Select the correct option for running script with arguments
+
+  To run a file program.py with arguments arg1 and arg2, which command is correct?
+  
+  
+  python program.py, -arg1, -arg2
+  
+  python program.py -arg1 -arg2
+  
+  python program.py arg1 arg2
+  
+  python program.py, arg1, arg2
+
+ans option 3
+
+7. What will be the output of code given
+
+  Below is the code written in activity_seven.py file. What will be the output of the code if you run the script with arguments 5 10 15?
+  
+  import sys
+  
+  sum = int(sys.argv[1]) + int(sys.argv[2])
+  average = (sum + int(sys.argv[3]))/2
+  
+  print("Sum:", sum)
+  print("Average:", average)
+  
+  Sum: 15
+  Average: 15.0
+  
+  Sum: 30
+  Average: 10
+  
+  Sum: 15
+  Average: 15
+  
+  Sum: 30
+  Average: 15
+
+ans option 1
+
+8. Create a python script
+
+  Create a Python script named print_message.py that takes a message as an argument and prints it. The script should be able to run like this:
+  
+  python print_message.py "Hello, DataWars!"
+
+ans 
+import sys
+if len(sys.argv) < 2:
+    print("Usage: python print_message.py <message>")
+    sys.exit(1)
+message = sys.argv[1]
+print(message)
+
+9. Name it Right!
+  
+  Create a Python script that defines three variables: first_name, age, and is_student. Name the file variables_activity_9.py and run it to check if the variables are created correctly.
+  
+  Name the file variables_activity_9.py and run it to check if the variables are created correctly.
+  
+  In the first line of the script, create a variable named first_name and assign it the value "Alice". In the second line, create a variable named age and assign it the value 25. In the third line, create a variable named is_student and assign it the value True.
+  
+  In the next 3 lines, print the values of these variables using the print() function.
+
+ans 
+
+first_name = "Alice"
+age = 25
+is_student = True
+
+print(first_name)
+print(age)
+print(is_student)
+
+
+10. Convert Fahrenheit to Celsius
+
+  Write a Python script that takes the temperature in Fahrenheit as input from the user and converts it to Celsius. Create a script named temperature_converter.py and run it to check if the conversion is correct.
+  
+  Use the input() function to take the temperature in Fahrenheit as input.
+  Convert the input to an integer.
+  Convert the temperature from Fahrenheit to Celsius using the formula: Celsius = (Fahrenheit - 32) * 5/9.
+  Print the temperature in Celsius.
+  Expected outcome:
+  
+  Expected output after running the script:
+  
+  Enter the temperature in Fahrenheit: 32
+  Temperature in Celsius: 0.0
+ans 
+
+try:
+    Fahrenheit = float(input("Enter the temperature in Fahrenheit: "))  
+    Celsius = (Fahrenheit - 32) * 5 / 9
+    print(f"Temperature in Celsius: {Celsius:.2f}") 
+except ValueError:
+    print("Invalid input! Please enter a numerical value.")
