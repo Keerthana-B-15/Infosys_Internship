@@ -1,0 +1,94 @@
+1. Double the Number
+Write a function double_number(num) that returns twice the value of num. For example, double_number(5) should return 10.
+
+def double_number(num):
+    return num*2
+result = double_number(5)
+print(result)  # 10
+10
+
+2. Sum and Average
+Write a function sum_and_average(num1, num2) that returns the sum and average of two numbers. For example, sum_and_average(5, 10) should return (15, 7.5). The average should be a floating-point number.
+def sum_and_average(num1, num2):
+    total = num1 + num2
+    avg = total / 2
+    return total, float(avg)
+result = sum_and_average(5, 10)
+print(result)  # (15, 7.5)
+(15, 7.5)
+
+3.Document the Function
+
+Write the function sum_and_difference(num1, num2) that returns the sum and difference of two numbers. For example, sum_and_difference(5, 10) should return (15, -5). The function should also have a docstring that describes what it does.
+Write the below docstring for the function:
+This function takes two numbers as input and returns their sum and difference.
+
+Parameters:
+- num1: The first number.
+- num2: The second number.
+
+Returns:
+- A tuple containing the sum and difference of the two numbers.
+Expected outcome:
+
+If we check the docstring of the function sum_and_difference using sum_and_difference.__doc__, it should return the above docstring like this:
+
+This function takes two numbers as input and returns their sum and difference.
+
+Parameters:
+- num1: The first number.
+- num2: The second number.
+
+Returns:
+- A tuple containing the sum and difference ofthe two numbers.
+
+ans 
+def sum_and_difference(num1, num2):
+    """
+    This function takes two numbers as input and returns their sum and difference.
+
+    Parameters:
+    - num1: The first number.
+    - num2: The second number.
+
+    Returns:
+    - A tuple containing the sum and difference of the two numbers.
+    """
+    total = num1 + num2
+    difference = num1 - num2
+    return total, difference
+result = sum_and_difference(5, 10)
+print(result)  # (15, -5)
+(15, -5)
+print(sum_and_difference.__doc__)
+    This function takes two numbers as input and returns their sum and difference.
+
+    Parameters:
+    - num1: The first number.
+    - num2: The second number.
+
+    Returns:
+    - A tuple containing the sum and difference of the two numbers.
+
+4. Type Checking
+Define a function is_integer(num) that returnsTrue if the input num is an integer and False otherwise. For example, is_integer(5) should return True, and is_integer(5.5) should return False.
+def is_integer(num):
+    return isinstance(num, int)
+result = is_integer(5)
+print(result)  # True
+True
+result_2 = is_integer(5.0)
+print(result_2)  # False
+False
+
+5
+Celsius to Fahrenheit Converter
+
+Write a function celsius_to_fahrenheit(celsius) that returns the Fahrenheit equivalent of the input Celsius temperature. The formula to convert Celsius to Fahrenheit is F = (C * 9/5) + 32.
+
+def celsius_to_fahrenheit(celsius):
+    F = (celsius* 9/5)+32
+    return F
+result = celsius_to_fahrenheit(0)
+print(result)  # 32.0
+32.0
