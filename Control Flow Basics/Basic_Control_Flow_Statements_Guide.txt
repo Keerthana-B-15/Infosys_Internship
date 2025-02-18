@@ -1,0 +1,222 @@
+1. Check if a Number is Positive
+Complete the code snippet to check whether the given number is positive. If the number is greater than zero, the function should return a message "Positive", indicating that it is positive.
+
+def check_positive_number(num):
+    if num>0:
+        return "Positive"
+
+2. Determine Age Group
+
+Analyze the following code snippet and determine the output when the age is 16.
+def check_age(age):
+    if age >= 18:
+        return "Adult"
+    else:
+        return "Minor"
+
+print(check_age(16))
+
+Adult
+None of the Above
+Minor
+Error
+
+ans Minor
+
+3. Categorize a Number
+
+The code given in the jupyter notebook categorizes a number into three types: positive, zero, or negative. Identify and fix the issue to ensure the code works as expected.
+def categorize_number(num):
+    if num > 0:
+        return "Positive"
+    
+    elif num < 0:
+        return "Negative"
+    
+    else:
+        return "Zero"
+
+4. Assign Grade Category
+
+Write a function called grade_category that takes a number representing a student's grade and returns the grade category. The categories are as follows:
+
+A for grades 90 and above
+B for grades greater than or equal to 70 and less than 90
+C for grades greater than or equal to 50 and less than 70
+Fail for grades below 50
+
+def grade_category(grade):
+    if grade >= 90:
+        return "A"
+    elif grade < 90 and grade >=70:
+        return "B"
+    elif grade < 70 and grade >= 50:
+        return "C"
+    else:
+        return "Fail"
+
+5. Calculate the Sum of Numbers
+
+Complete the code snippet to iterate through a list of numbers and calculate their total sum.
+def calculate_sum(numbers):
+    total = 0
+    for i in numbers:
+        total += i  
+    return total
+
+6 Print Numbers Up to a Limit
+
+Analyze the following code snippet and determine its output when the limit is set to 5.
+
+def print_numbers_upto(limit):
+    num = 1
+    while num <= limit:
+        print(num, end=" ")
+        num += 1
+
+print_numbers_upto(5)
+
+5 4 3 2 1
+None of the given options
+1 2 3 4
+12345
+
+ans 
+None of the given options
+
+7. Fix the Sum of Three Numbers
+
+The code given in the jupyter notebook is intended to calculate the sum of three numbers and return the result. However, it contains a syntax error and a logical mistake in the calculation. Identify and correct these issues to make the code work as expected.
+def sum_of_three_numbers(a, b, c):
+    sum  = a + b + c
+    return sum
+
+8
+Calculate the Product of a List
+
+Write a function calculate_product takes a list of numbers as input and calculates the product of all the numbers in the list.
+
+def calculate_product(numbers):
+    prod = 1  
+    for num in numbers:
+        prod *= num  
+    return prod
+
+9. Find and Stop at a Specific Number
+
+Complete the code snippet to stop iterating through the list of numbers as soon as the number 5 is encountered.
+def find_and_stop(numbers):
+    for num in numbers:
+        if num == 5:
+            break
+    return "Found 5"
+
+10. Skip Even Numbers in a Loop
+
+Analyze the following code snippet and determine its output.
+
+def skip_even_numbers():
+    for i in range(1, 6):
+        if i % 2 == 0:
+            continue
+        print(i, end=" ")
+
+skip_even_numbers()
+1 3 4 5 6
+1 2 3 4 5
+1 5
+1 3 5
+
+ans 1 3 5
+
+11. Fix the Target Search Logic
+
+The following code is intended to search for a specific target number in a list and return "Target Found" if the number is present. Identify and correct these issues to make the function work correctly.
+def find_target(numbers, target):
+    for num in numbers:
+        if num == target:
+            return "Target Found"
+    return "Target Not Found"
+
+12. Filter Odd Numbers from a List
+
+Write a function called filter_odd_numbers that takes a list of numbers as input and returns a list containing only the odd numbers, skipping even numbers using the continue statement.
+
+def filter_odd_numbers(numbers):
+    odd_numbers = []
+    for num in numbers:
+        if num % 2 == 0: 
+            continue
+        odd_numbers.append(num)  
+    return odd_numbers
+
+13
+Determine Number Sign and Calculate Sum Excluding Specific Number
+
+Complete the code to achieve the following:
+
+Check if the given number is positive and assign the appropriate sign.
+Calculate the sum of numbers from 1 to num-1, excluding the number 5. Return the sign of the number and the calculated sum.
+
+def specific_sum(num):
+    if num > 0: 
+        sign = "Positive"
+        sum = 0
+        for i in range(1, num):  
+            if i == 5: 
+                continue
+            sum += i  
+        return sign, sum
+    else:
+        return "Non-Positive", 0
+
+14. Loop with Conditional Skip and Break
+
+Analyze the following for loop and determine the output.
+
+for i in range(1, 6):
+    if i == 3:
+        continue
+    elif i == 5:
+        break
+    print(i, end="")
+
+1 2 4
+1 2 3 4
+124
+123
+
+ans 124
+
+15
+Debug and Fix: Sum of Squares of Even Numbers
+
+The provided code aims to calculate the sum of squares of all even numbers from 1 to n (exclusive). However, it contains a logical error where the loop stops prematurely. Debug and correct the code so that it calculates the desired sum correctly.
+
+def calculate_sum_even_squares(n):
+    total = 0
+    for num in range(1, n): 
+        if num == 5: 
+            continue
+        if num % 2 == 0: 
+            total += num**2  
+    return total
+
+16. Identify and Return the Last Valid Number
+
+Create a function find_last_valid that iterates through numbers from 1 to n (inclusive) and applies the following rules:
+
+Skip numbers that are multiples of 3.
+Stop the iteration if a number exceeds 30.
+The function find_last_valid returns the last number that is not a multiple of 3 and is less than or equal to 30.
+
+def find_last_valid(n):
+    last_valid = None
+    for i in range(1,n+1):
+        if i % 3 == 0:
+            continue
+        if i >30:
+            break
+        last_valid = i
+    return last_valid
+
