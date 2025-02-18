@@ -1,0 +1,226 @@
+1
+Categorize Temperature Levels
+
+Complete the code by filling in the missing parts to correctly implement the temperature categorization logic.
+
+def temperature_category(temp):
+    if temp < 0:
+        return "Freezing"
+    elif temp < 10:
+        return "Cold"
+    elif temp < 20:
+        return "Cool"
+    elif temp < 30:
+        return "Warm"
+    else:
+        return "Hot"
+
+2
+Filter Even Numbers
+
+Complete the code snippet to filter out even numbers from a list. Add the missing condition in the if statement to check whether a number is even.
+
+def filter_even_numbers(numbers):
+    result = []
+    for num in numbers:
+         if num % 2 == 0:
+            result.append(num)
+    return result
+
+3
+Find the First Multiple
+
+Complete the code snippet to find the first number in the list that is a multiple of a given input.
+
+
+def find_first_multiple(numbers, multiple):
+    result = None
+    for num in numbers:
+        if num % multiple == 0:  # Fill in the condition to check if num is a multiple of the input
+            result = num
+            break  # Exit the loop as soon as we find the first multiple
+    return result
+
+4
+Process Numbers with Even Skipping
+
+Complete the code snippet to skip even numbers during processing.
+
+def process_numbers(numbers):
+    total = 0
+    for num in numbers:
+        if num%2== 0:  # Fill in the condition to check if the number is even
+            continue  # Skip processing for even numbers
+        total += num
+    return total
+
+
+5
+Predict the Output of Conditional Paths
+
+Examine the mystery_output_1 function and predict the output based on the given conditions. Determine which path the code will follow based on the values of x and y.
+
+def mystery_output_1():
+    x = 10
+    y = 5
+    if x > 5:
+        print("Path 1") 
+    elif y<5:
+        print("Path 2")
+    else:
+        print("Path 3")
+
+Path 1
+Error
+Path 2
+Path 3
+
+ans Path 1
+
+6. Predict the Output of Counting Logic
+
+Analyze the code snippet and predict the output of the mystery_output_2 function.
+
+def mystery_output_2(): 
+    count = 0
+    for i in range(5):
+        if i % 2 == 0:
+            count += 1
+        else:
+            count += 2
+    print(count)
+
+4
+7
+3
+5
+
+7. Predict the Output of Loop with Break and Continue
+
+Analyze the mystery_output_3 function and predict the output.
+
+def mystery_output_3():
+    total = 0
+    for i in range(10):
+        if i == 3:
+            continue
+        if i == 7:
+            break
+        total += i
+    print(total)
+
+35
+48
+18
+45
+
+ans 18
+
+
+8. Predict the Output of Conditions
+
+Examine the provided code snippet and predict the output
+
+x = 10
+y = 20
+z = 15
+
+if x > y:
+    result = "X is greater"
+elif y > z:
+    result = "Y is greater than Z"
+elif z > x:
+    result = "Z is greater than X"
+else:
+    result = "No condition is True"
+
+print(result)
+
+Y is greater than Z
+X is greater
+Z is greater than X
+None
+
+ans Y is greater than Z
+
+9
+Fix the Temperature Conversion Formula
+
+The code is intended to convert a temperature from Celsius to Fahrenheit. There is a mistake in the formula for conversion. Fix the formula to correctly convert Celsius to Fahrenheit.
+Formula to covert temperature from Celsius to Fahrenheit:
+F=9/5C+32
+
+def temperature_conversion(celsius):  
+    fahrenheit = (9/5) * celsius + 32
+    return fahrenheit
+
+10. Fix the Code to Find the First Even Number
+
+The code is intended to return the first even number from a list. However, there is an error in the code. Debug and fix the code to ensure it works correctly.
+def find_first_even(numbers):
+    for num in numbers:
+        if num % 2 == 0:  # Fix the condition to check if num is even
+            return num  # Return the first even number
+    return None  # Return None if no even number is found
+
+11. Debug the Grade Calculation Logic
+
+The code is designed to calculate grades based on a score, but it contains errors in the conditional statements. Debug and fix the code to ensure accurate grade calculations.
+
+def grade_calculation(score): 
+    if score >= 90: 
+        return "A"
+    elif score >= 80: 
+        return "B"
+    elif score >= 70 :
+        return "C" 
+    elif score >= 60: 
+        return "D"
+    else: return "F"  
+
+12
+Fix the Code to Calculate the Sum of Numbers
+
+The code is intended to calculate the sum of a list of numbers, but it contains errors in the loop and summation. Fix the code to ensure it correctly adds all numbers in the list.
+
+def calculate_sum(numbers):
+    for num in numbers:
+        total += numbers 
+    return total
+
+13
+Write a Function to Find the Largest of Three Numbers
+
+Write a function find_largest that takes three numbers as input and returns the largest of the three numbers.
+def calculate_sum(numbers):
+    total = 0  # Initialize total to 0
+    for num in numbers:
+        total += num  # Add each number to total
+    return total
+
+14
+Write a Function to Find Numbers Divisible by 3 or 5
+
+Write a function divisible_by_3_or_5 that takes an upper limit as input and returns a list of all numbers from 0 to the given limit that are divisible by either 3 or 5.
+
+def divisible_by_3_or_5(limit):
+    result = []
+    for number in range(limit + 1):
+        if number % 3 == 0 or number % 5 == 0:
+            result.append(number)
+    return result
+
+15 
+
+Write a Function to Check if a Number is Prime
+
+Write a function is_prime that checks if a given number is prime. The function should return True if the number is prime and False otherwise. A number is prime if it is greater than 1 and divisible only by 1 and itself.
+
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
