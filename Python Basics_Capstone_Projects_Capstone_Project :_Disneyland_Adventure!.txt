@@ -1,0 +1,160 @@
+1 Magic Registration Portal!
+Alice is a fourteen year old, who loves Minnie Mouse and is here to explore the magical world of Disneyland.
+Define variables name, age, and fav_char to store this information respectively.
+Also print a custom message for her to welcome her to Disneyland!
+
+name = 'Alice'
+age = 14
+fav_char = 'Minnie Mouse'
+
+message = f"Welcome to Disneyland {name}!!, Your favorite character {fav_char}, awaits you. Have a magical day!"
+print(message)
+Welcome to Disneyland Alice!!, Your favorite character Minnie Mouse, awaits you. Have a magical day!
+
+2. The Thrilling Roller Coaster Ride
+Your first ride is the thrilling roller coaster, but there’s a requirement! Let’s check if you can hop on!
+Write a python expression that takes input from the user and allows only those whose height is above 150 cm and should weight more than 20 kg.
+
+height = int(input("Enter your height : "))
+weight = int(input("Enter your weight : "))
+
+if height > 150 and weight > 20:
+             can_ride = True
+else:
+             can_ride = False
+
+
+3. Shopping Spree!!
+That was a fun ride! Now let's do some souvenir shopping! But wait, I’ve heard everything here is expensive! Let's see what fits our budget!!
+There are a few items that have been defined for you along with their prices. You need to define a function souvenir_shop that takes in user's budget , choice number of souvenir and then checks if user can buy the item with their budget.
+Refer the expected-outcome to know which return statements to use for each case.
+Using error-handling, check for any invalid inputs entered by the user.
+
+# Choice 1 : 
+mickey_ears = 30
+# Choice 2 : 
+tiara = 25
+
+def souvenir_shop(budget, choice):
+    try:
+        if choice == 1:
+            if budget >= mickey_ears:
+                return "Mickey Ears purchased"
+            else:
+                return "Insufficient funds for Mickey Ears"
+        elif choice == 2:
+            if budget >= tiara:
+                return "Tiara purchased"
+            else:
+                return "Insufficient funds for Tiara"
+        else:
+            return "Invalid choice"
+    except ValueError:
+        return "Invalid input"
+
+
+4. Wish Maker!
+Disneyland is a place where dreams come true! But have you ever wondered how your wish might transform into something magical?
+Write a function called wish_maker(wish) that takes user's wish as input and reverses the given wish string character by character using a loop.
+
+def wish_maker(wish):
+    print("Welcome to the Disneyland Wish Maker!")
+
+    reversed_wish = ""
+    for char in wish:
+        reversed_wish = char + reversed_wish
+
+    return f"Your magical wish transformation is complete! Your transformed wish is : {reversed_wish}"
+
+5. Castle Light Show
+Step into a grand castle, where light and magic come together in a stunning display!
+Write a function called castle_light_show(rows) that takes the number of rows as input and creates a beautiful light display. The function should return a string that shows the light pattern for each row, with an increasing number of lightbulbs (represented by 💡) for each subsequent row.
+
+def castle_light_show(rows):
+    result = ""
+    for i in range(1, rows + 1):
+        result += f"Row {i}: " + "💡" * i + "\n"
+    result += "\n🏰 The castle light show has ended! Hope you enjoyed it!"
+    return result
+output = castle_light_show(5)  
+print(output)
+
+6. Mickey's Clock Tower!
+Write a function called clock_tower_puzzle(hour, turns) that takes two inputs: the current hour (in 24-hour format) and the number of magical turns (which could be positive or negative). The function should calculate the new time after the specified turns and return the result.
+
+def castle_light_show(rows):
+    result = ""
+    for i in range(1, rows + 1):
+        result += f"Row {i}: " + "💡" * i + "\n"
+    result += "\n🏰 The castle light show has ended! Hope you enjoyed it!"
+    return result
+output = castle_light_show(5)  
+print(output)
+
+7. The Magic Aladdin Carpet
+Have you ever imagined designing your very own magical carpet?
+Complete the following function called magic_carpet_ride(size, pattern) that takes two inputs: the size of the carpet and a magical pattern symbol of your choice.
+Use nested loops to create a square carpet design where the pattern alternates with a heart symbol (❤️) in a checkerboard style.
+The carpet size determines the number of rows and columns. Ensure that there are spaces between each symbol and at the end of each line in the design. The result should match the expected outcome exactly, including spaces.
+
+def magic_carpet_ride(size, pattern):
+    result = ""
+    for i in range(size):
+        for j in range(size):
+            if (i + j) % 2 == 0:
+                result += pattern + " "
+            else:
+                result += "❤️ " 
+        result += "\n"
+    return result
+
+output = magic_carpet_ride(5, '☘️')
+print(output)
+
+
+8. Mickey's Magical Number Transform
+Join Mickey Mouse in a fascinating mathematical adventure! In this magical game, Mickey has discovered a special way to transform numbers using two enchanted rules: - If the number is even, divide it by 2 - If the number is odd, multiply it by 3 and add 1
+You need to define a python function called mickey_math() that calculates the number of magical transformations for a given number by the user, using the above stated rules. If the number of transformations exceeds or is equal to 20, stop the program.
+Note: This is based on the Collatz Conjecture, a famous mathematical puzzle!
+
+def mickey_math(magic_number):
+    print("🎪 Welcome to Mickey's Mathematical Adventure! 🎪")
+    operations = 0
+    original = magic_number
+
+    while magic_number != 1:
+        if magic_number % 2 == 0:
+            magic_number = magic_number // 2
+        else:
+            magic_number = (3 * magic_number) + 1
+        operations += 1
+        print(f"Magic transformation #{operations}: {magic_number}")
+
+        if operations >= 20:
+            print("Oh my! That's quite a magical journey!")
+            break
+
+    return (f"Your number {original} needed {operations} magical transformations!")
+
+9. Firework Show
+With this our Disneyland tour almost comes to an end 🥲. Write a function called firework_design(height, symbol) that takes two inputs: the height of the firework and a symbol (like '*' or '#') to create the firework design.
+The function should return a string that displays the upper and lower halves of the firework pattern, with the chosen symbol forming the design.
+Note : The height parameter here represents height of either the upper or lower half of the firework design. This means the total height of the firework will be 2 * height - 1, including the middle row.
+
+def firework_design(height, symbol):
+    result = "Welcome to the Firework Design Creator!"
+    result += "\n\n🎆 Your firework is ready! 🎆\n\n"
+
+    # Create upper half of firework
+    for i in range(1, height + 1):
+        result += " " * (height - i) + symbol * (2 * i - 1) + "\n"
+
+    # Create lower half of firework
+    for i in range(height - 1, 0, -1):
+        result += " " * (height - i) + symbol * (2 * i - 1)
+        if i > 1:
+            result += "\n"
+
+    return result
+output = firework_design(3,'*') 
+print(output)
