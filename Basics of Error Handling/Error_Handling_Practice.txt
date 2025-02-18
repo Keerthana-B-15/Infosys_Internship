@@ -1,0 +1,205 @@
+1
+Handling ZeroDivisionError
+
+Create a function safe_division() that takes two arguments a and b and returns the result of a / b. Handle the ZeroDivisionError using a try-except block if the given denominator i.e. b is zero. Return Cannot divide by zero! if an error occurs.
+
+def safe_division(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return "Cannot divide by zero!"
+
+safe_division(10, 0)
+'Cannot divide by zero!'
+
+2
+Handling ValueError in Input Conversion
+
+Create a function convert_to_int() that takes a string as an argument and returns an integer. Use a try-except block to catch the ValueError. Return Invalid input! if an error occurs.
+
+def convert_to_int(value):
+    try:
+        return int(value)
+    except ValueError:
+        return "Invalid input!"
+
+3
+Handling Multiple Exceptions
+
+Create a function safe_input_division() that takes two arguments a as string and bas float. Type cast a and b into integer. Use a try-except block to catch both exceptions, ValueError and ZeroDivisionError. Return Invalid input! for ValueError and Cannot divide by zero! for ZeroDivisionError.
+
+def safe_input_division(a, b):
+    try:
+        return int(a) / int(b)
+    except ValueError:
+        return "Invalid input!"
+    except ZeroDivisionError:
+        return "Cannot divide by zero!"
+# test case 1 
+safe_input_division("10", 10.5)
+1.0
+# test case 2
+safe_input_division("hello", 2.0)
+'Invalid input!'
+# test case 3
+safe_input_division("10", 0.0)
+'Cannot divide by zero!'
+
+4
+Raising ValueError
+
+Create a function check_positive() that takes a number as an argument. If the number is negative, raise a ValueError with the message Negative numbers are not allowed. For a positive number, return Valid number.
+
+def check_positive(num):
+    if num < 0:
+        raise ValueError("Negative numbers are not allowed")
+    return "Valid number"
+
+
+5
+Invalid Age Input
+
+Create a function check_age(age) that takes an integer input and raises a ValueError with message Age cannot be negative, if the age is less than 0. Return Age is valid, if the age is greater than or equal to 0.
+
+def check_age(age):
+    if age < 0:
+        raise ValueError("Age cannot be negative")
+    return "Age is valid"
+6
+Catching TypeError
+
+Create a function safe_addition(a, b) that takes two inputs a and b, return the sum of a and b using try block. Otherwise, except a TypeError and return Type mismatch!.
+def safe_addition(a, b):
+    try:
+        return a + b
+    except TypeError:
+        return "Type mismatch!"
+# test case 1
+safe_addition(5, 6.0)
+11.0
+# test case 2
+safe_addition("hello", 2)
+'Type mismatch!'
+
+7
+Handling AttributeError
+
+Create a function call_invalid_method() that takes integer argument value as input and calls the non-existent method invalid_method() on an integer. Except the AttributeError and return Invalid operation!.
+
+def call_invalid_method(value):
+    try:
+        return value.invalid_method()
+    except AttributeError:
+        return "Invalid operation!"
+
+8
+Invalid Email Format
+
+Create a function validate_email(email) that takes an email as input and raises a ValueError as Invalid email format if the email does not contain an @ symbol. Return Email is valid if the email is valid.
+def validate_email(email):
+    if "@" not in email:
+        raise ValueError("Invalid email format")
+    return "Email is valid"
+
+9
+Using finally block to Ensure Cleanup
+
+Create a function cleanup_example(). Declare a variable var and assign a value In use. Raise an exception with message Some error in try block. In finally block, assign a value Cleaned to var and return var
+
+def cleanup_example():
+    var = "In use"
+    try:
+        raise Exception("Some error")
+    finally:
+        var = "Cleaned"
+        return var 
+10
+Nested Try-Except Blocks
+
+Create a function nested_error_handling() that takes a string as an argument and returns a integer. Use nested try-except block, if the string is not a valid number, catch a ValueError and raise TypeError with the message Inner Type Error for inner except block and catch TypeError at outer except block and return Handled in outer block.
+
+def nested_error_handling(value):
+    try:
+        try:
+            return int(value)
+        except ValueError:
+            raise TypeError("Inner Type Error")
+    except TypeError:
+        return "Handled in outer block"
+
+11
+Handle Empty String
+
+Create a function check_empty_string(s) that takes a string as input. Raises a ValueError with message String cannot be empty! if the string is empty. Return String is valid if the string is not empty.
+
+def check_empty_string(s):
+    if not s:
+        raise ValueError("String cannot be empty!")
+    return "String is valid"
+
+12
+Combining Try-Except-Else-Finally
+
+Write a function complete_error_handling() that takes two arguments a and b. Divide a by b and store the result in a variable result. Use try-except-else-finally block to catch the ZeroDivisionError and return Cannot divide by zero!. If no error occurs, return the variable result. Finally, print Operation completed!.
+
+def complete_error_handling(a, b):
+    try:
+        result = a / b
+    except ZeroDivisionError:
+        return "Cannot divide by zero!"
+    else:
+        return result
+    finally:
+        print("Operation completed!")
+
+Operation completed!
+Operation completed!
+
+13
+Custom Exception for Invalid Password Length
+
+Create validate_password() function that takes a password as an argument and raises a custom InvalidPasswordError if the password length is less than 8 characters. Print Password must be at least 8 characters long! if an error occurs. And return Password is valid if the password is valid.
+
+class InvalidPasswordError(Exception):
+    pass
+
+def validate_password(password):
+    if len(password) < 8:
+        raise InvalidPasswordError("Password must be at least 8 characters long!")
+    return "Password is valid"
+14
+Substring Not Found
+
+Write a function find_substring(s, sub) that takes a string s and a substring sub as input. Except ValueError with message Substring not found! if the substring is not found in the string. Return Substring found at index {index} if the substring is found.
+
+def find_substring(string, substring):
+    try:
+        index = string.index(substring)
+        return f"Substring found at index {index}"
+    except ValueError:
+        return "Substring not found!"
+
+15
+Check Boolean Input Validation
+
+Write a function validate_boolean(b) that takes a boolean input and raises a TypeError with message Value must be a boolean! if the input is not a boolean. Return Boolean is valid if the input is valid.
+
+def validate_boolean(value):
+    if not isinstance(value, bool):
+        raise TypeError("Value must be a boolean!")
+    return "Boolean is valid"
+
+16
+Using else with Try Block
+
+Create a function divide_numbers() that takes two arguments a and b. Use a try-except-else block to catch the ZeroDivisionError and return Cannot divide by zero!. If no error occurs, return the result of a/b.
+
+
+def divide_numbers(a, b):
+    try:
+        result = a / b
+    except ZeroDivisionError:
+        return "Cannot divide by zero!"
+    else:
+        return result
+Create a function divide_numbers() that takes two arguments a and b. Use a try-except-else block to catch the ZeroDivisionError and return Cannot divide by zero!. If no error occurs, return the result of a/b.
