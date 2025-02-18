@@ -1,0 +1,638 @@
+1
+Data Analysis at DataWars
+
+You're analyzing user engagement data. Review the code and select the correct output.
+
+user_projects = 5
+activity_threshold = 4
+
+print("Checking user status...")
+if user_projects > activity_threshold:
+    print("Active User")
+    print(f"Total projects: {user_projects}")
+What will be the output?
+
+
+Active User
+Total projects: 5
+
+Checking user status...
+
+Checking user status...
+Active User
+Total projects: 5
+
+Checking user status...
+Total projects: 5
+
+ans 
+Checking user status...
+Active User
+Total projects: 5
+
+2
+Missing Sale Alert
+
+A small bookstore needs to track their daily sales. Fix the code.
+
+def check_sales(daily_sales):
+    if daily_sales > 100
+        return "Good sales day!"
+    else:
+        return "Missing target"
+
+sales = 150
+check_sales(sales)
+
+
+def check_sales(daily_sales):
+    if daily_sales > 100:  # Added colon
+        return "Good sales day!"
+    else:
+        return "Missing target"
+
+
+3
+Bug Hunt: The Missing Projects
+
+Find and fix the error in this code that calculates total projects.
+
+def add_projects(project1, project2):
+    total = 0
+    total + project1  # Line with bug
+    total + project2
+    return total
+
+# Test the function
+result = add_projects(5, 3)
+print(f"Total projects: {result}")
+Expected Output:
+
+Total projects: 8
+Actual Output:
+
+Total projects: 0
+
+
+def add_projects(project1, project2):
+    total = 0
+    total = total + project1  # or total += project1
+    total = total + project2  # or total += project2
+    return total
+
+4
+Temperature Tracker
+
+Fix the syntax errors in this fever-checking code that's causing it to fail. The code should correctly identify high fever (>=38°C) vs normal temperature.
+
+def check_temperature(temp):
+    if temp = 38
+        return "Fever! Rest needed"
+    return "Normal temperature"
+
+temp = 37.5
+result = check_temperature(temp)
+print(result)
+Expected:
+
+"Normal temperature"
+
+Actual:
+
+SyntaxError
+
+def check_temperature(temp):
+    if temp >= 38:  # Added colon
+        return "Fever! Rest needed"
+    return "Normal temperature"
+
+5
+Fix the Patient Counter
+
+A hospital needs a function to increment their patient counter by 1 when a new patient arrives. Fix this code that's supposed to add one new patient to the total.
+
+def add_patient(total)
+    total + 1
+    return total
+
+patients = 5
+new_total = add_patient(patients)
+print(f"Total patients: {new_total}")
+Expected:
+
+Total patients: 6
+
+Actual:
+
+Total patients: 5
+
+def add_patient(total):
+    total += 1
+    return total
+
+
+6
+Create Patient Record Variables
+
+Create variables for a patient's basic information and display it.
+
+Input Data:
+
+Name: John Miller
+Age: 45
+Temperature: 36.8
+Insurance: Yes
+Requirements:
+
+Use descriptive variable names
+Match exact values given
+Print formatted output
+Expected outcome:
+
+Patient: John Miller
+Age: 45
+Temperature: 36.8°C
+Insurance: True
+
+
+# Create variables for patient information
+patient_name = "John Miller"
+patient_age = 45
+patient_temp = 36.8
+has_insurance = True
+
+# Display patient information
+print(f"Patient: {patient_name}")
+print(f"Age: {patient_age}")
+print(f"Temperature: {patient_temp}°C")
+print(f"Insurance: {has_insurance}")
+Patient: John Miller
+Age: 45
+Temperature: 36.8°C
+Insurance: True
+
+
+7
+Create Weather App Variables
+
+Create weather dashboard variables using today's data.
+
+Input Data:
+
+Location: New York City
+Current temp: 22.5
+Conditions: Partly cloudy
+Rain chance: 0.30
+Is daytime: True
+Requirements:
+
+Use appropriate data types: string for location/conditions, float for temp/rain, boolean for daytime
+Format display with °C for temperature and % for rain chance
+Format temperature to 1 decimal place
+Create a clean dashboard layout
+Expected outcome:
+
+Weather Dashboard:
+New York City
+Temperature: 22.5°C
+Conditions: Partly cloudy
+Rain Chance: 30%
+Daylight: True
+
+
+# Create weather variables
+location = "New York City"
+temperature = 22.5
+conditions = "Partly cloudy"
+rain_chance = 0.30  # Stored as decimal for percentage
+is_daytime = True
+
+# Display dashboard
+print("Weather Dashboard:")
+print(location)
+print(f"Temperature: {temperature:.1f}°C")
+print(f"Conditions: {conditions}")
+print(f"Rain Chance: {rain_chance:.0%}")
+print(f"Daylight: {is_daytime}")
+Weather Dashboard:
+New York City
+Temperature: 22.5°C
+Conditions: Partly cloudy
+Rain Chance: 30%
+Daylight: True
+
+
+8
+Create E-commerce Product Variables
+
+Create variables to store information about a product.
+
+Input Data:
+
+Product: Gaming Laptop XR-5
+Price: $1299.99
+Stock: 5 units
+Free shipping: True
+Rating: 4.7
+Requirements:
+
+Use appropriate data types: string for name, float for price/rating, integer for stock, boolean for shipping
+Expected outcome:
+
+Product: Gaming Laptop XR-5
+Price: $1299.99
+Stock: 5
+Free Shipping: True
+Rating: 4.7/5
+
+
+# Create product variables
+product_name = "Gaming Laptop XR-5"
+price = 1299.99
+stock = 5
+free_shipping = True
+rating = 4.7
+
+# Display product information
+print("Product:", product_name)
+print(f"Price: ${price:.2f}")
+print("Stock:", stock)
+print("Free Shipping:", free_shipping)
+print(f"Rating: {rating}/5")
+Product: Gaming Laptop XR-5
+Price: $1299.99
+Stock: 5
+Free Shipping: True
+Rating: 4.7/5
+
+
+9
+Create a Doctor's Appointment Function
+
+Create a function that schedules patient appointments. The function should:
+
+Take patient name and preferred time
+Return appointment confirmation message
+Include basic input validation
+Example Usage:
+
+result = schedule_appointment("John Smith", "14:30")
+print(result)
+# Should output: "Appointment confirmed for John Smith at 14:30"
+Requirements:
+
+Function name: schedule_appointment
+Parameters: name (str), time (str)
+Return: confirmation message
+Validate: name can't be empty
+Test Cases (input → output):
+
+("John Smith", "14:30") → "Appointment confirmed for John Smith at 14:30"
+("", "15:00") → "Error: Name required"
+
+
+def schedule_appointment(name, time):
+    if len(name) == 0:
+        return "Error: Name required"
+    return f"Appointment confirmed for {name} at {time}"
+
+
+10
+Restaurant Bill Calculator
+
+Create a simple bill calculator using basic operations.
+
+Input Data:
+
+Meal cost: $36.50
+Tip percentage: 15%
+Requirements:
+
+Calculate the tip amount
+Add tip to meal cost
+Format amounts with $ and 2 decimals
+Example
+
+bill = calculate_bill(36.50, 15)
+print(bill)
+Expected outcome:
+
+Subtotal: $36.50, Total with 15% tip: $41.98
+
+
+def calculate_bill(meal_cost, tip_percent):
+    tip_amount = meal_cost * (tip_percent/100)
+    total = meal_cost + tip_amount
+    return f"Subtotal: ${meal_cost:.2f}, Total with {tip_percent}% tip: ${total:.2f}"
+
+
+11
+Create a Movie Rating Predictor
+
+Create a function predict_rating that predicts movie ratings based on length and genre. Your function should:
+
+Rate longer movies (>180 mins) lower "Too long, likely 2/5"
+Give action movies higher ratings "Popular! 4/5"
+Handle other genres with standard rating "Standard 3/5"
+Test with:
+
+(150, "action") → "Popular! 4/5"
+(190, "drama") → "Too long, likely 2/5"
+
+def predict_rating(length, genre):
+    if length > 180:
+        return "Too long, likely 2/5"
+    elif genre.lower() == "action":
+        return "Popular! 4/5"
+    return "Standard 3/5"
+
+12
+Create a Social Media Post Analyzer
+
+Create a function that determines if a post is viral based on engagement metrics:
+
+Add likes, comments, shares
+Return "Viral post!" if total > 1000
+Validate all inputs are positive numbers
+For invalid input return "Invalid input: numbers must be positive"
+Test with:
+
+(800, 150, 100) → "Viral post!"
+(50, 10, 5) → "Normal post"
+
+
+def analyze_engagement(likes, comments, shares):
+    if likes < 0 or comments < 0 or shares < 0:
+        return "Invalid input: numbers must be positive"
+
+    total = likes + comments + shares
+    if total > 1000:
+        return "Viral post!"
+    return "Normal post"
+
+
+13
+Fix the Playlist Manager
+
+Debug a function that manages song ratings.
+
+Requirements:
+
+Function takes song name and rating
+Store highest rated songs (> 4.0)
+Print "Good song!" for ratings >= 3.0
+def manage_playlist(song rating  ):
+    top_song = ""
+    if rating > 4.0
+        top_song = songs
+    elif ratings >= 3.0
+        print(Good song!)
+    else
+        print('Skip this one")
+
+    return top songs
+Test with:
+
+# Test 1
+manage_playlist("Bohemian Rhapsody", 4.5)  
+# Expected: Returns "Bohemian Rhapsody"
+
+# Test 2
+manage_playlist("Random Song", 3.5)         
+# Expected: Prints "Good song!", Returns ""
+
+
+def manage_playlist(song, rating):
+    top_song = ""
+    if rating > 4.0:
+        top_song = song
+    elif rating >= 3.0:
+        print("Good song!")
+    else:
+        print("Skip this one")
+
+    return top_song
+
+
+Good song!
+Skip this one
+Control Flow Basics
+
+
+14
+Pizza Order Calculator
+
+Create a function that calculates pizza price based on size:
+
+Small: $8.99
+Medium: $12.99
+Large: $15.99
+Invalid sizes: extra large, xs, super - return error message "Error: Choose small, medium, or large only"
+
+Test Cases (input → output):
+
+"small" → "Small pizza: $8.99"
+"MEDIUM" → "Medium pizza: $12.99"
+"extra large" → "Error: Choose small, medium, or large only"
+
+def calculate_pizza_price(size):
+    size = size.lower()
+    if size == "small":
+        price = 8.99
+    elif size == "medium":
+        price = 12.99
+    elif size == "large":
+        price = 15.99
+    else:
+        return "Error: Choose small, medium, or large only"
+
+    return f"{size.capitalize()} pizza: ${price}"
+
+
+15
+Calculate Student Grade
+
+Create a function calculate_grade that converts numerical scores to letter grades with feedback.
+
+Input:
+
+Parameter: score (numerical value 0-100)
+
+String containing letter grade and feedback message
+
+Grade Scale:
+
+A (90-100): "Excellent!"
+B (80-89): "Good job"
+C (70-79): "More practice needed"
+Below 70: "Schedule tutoring"
+Test Cases (input → output):
+
+calculate_grade(95) → "A - Excellent!"
+calculate_grade(83) → "B - Good job"
+calculate_grade(75) → "C - More practice needed"
+calculate_grade(65) → "Below C - Schedule tutoring"
+
+
+def calculate_grade(score):
+    if score >= 90:
+        return "A - Excellent!"
+    elif score >= 80:
+        return "B - Good job"
+    elif score >= 70:
+        return "C - More practice needed"
+    else:
+        return "Below C - Schedule tutoring"
+
+
+16
+Coffee Shop Order Validator
+
+Create a function validate_coffee_order that validates coffee shop orders:
+
+Function should:
+
+Take 3 parameters (size, type, temperature)
+Convert inputs to lowercase
+Check if inputs are valid:
+Sizes: small, medium, large
+Types: espresso, latte, cappuccino
+Temps: hot, iced
+Return "Valid order" or specific error message "Invalid size", "Invalid coffee type", "Invalid temperature"
+Test Cases (input → output):
+
+("medium", "latte", "hot") → "Valid order"
+("huge", "mocha", "warm") → "Invalid size"
+("small", "espresso", "cold") → "Invalid temperature"
+
+def validate_coffee_order(size, coffee_type, temperature):
+    # Convert to lowercase
+    size = size.lower()
+    coffee_type = coffee_type.lower() 
+    temperature = temperature.lower()
+
+    # Check size
+    if size != "small" and size != "medium" and size != "large":
+        return "Invalid size"
+
+    # Check coffee type
+    if coffee_type != "espresso" and coffee_type != "latte" and coffee_type != "cappuccino":
+        return "Invalid coffee type"
+
+    # Check temperature
+    if temperature != "hot" and temperature != "iced":
+        return "Invalid temperature"
+
+    return "Valid order"
+
+17
+Movie Ticket Price Calculator
+
+Create a function that calculates movie ticket total based on:
+
+Base price: $12
+Child discount (under 12): 50% off
+Senior discount (over 65): 30% off
+Tuesday discount: $2 off
+Requirements:
+
+Return price as float rounded to 2 decimal places using round(price, 2)
+Function should use arithmetic and comparison operators
+Apply discounts in order: age discount first, then Tuesday discount
+Test Cases (input → output):
+
+(10, False) → 6.0
+(70, True) → 6.4
+(30, True) → 10.0
+
+def calculate_ticket_price(age, is_tuesday):
+    base_price = 12
+
+    if age < 12:
+        price = base_price * 0.5
+    elif age > 65:
+        price = base_price * 0.7
+    else:
+        price = base_price
+
+    if is_tuesday:
+        price = price - 2
+
+    return round(price, 2)
+
+
+
+18
+Fitness Goal Calculator
+
+Create a function calculating weeks to reach target weight:
+
+Input current weight, target weight and weekly rate
+Weekly rate must be between 0.5-1 kg
+Error message: "Weekly rate must be between 0.5-1 kg"
+Calculate and return number of weeks needed, rounded to nearest whole number
+Note: For simplicity, this function only calculates weight loss, so the current weight should be greater than the target weight.
+
+Test Cases (input → output):
+
+(80, 70, 0.5) → 20
+(85, 75, 1.0) → 10
+
+def calculate_fitness_goal(current_weight, target_weight, weekly_rate):
+    if weekly_rate < 0.5 or weekly_rate > 1:
+        return "Weekly rate must be between 0.5-1 kg"
+
+    weight_to_lose = current_weight - target_weight
+    weeks = weight_to_lose / weekly_rate
+    return round(weeks)
+
+
+19
+Mobile Data Usage Alert
+
+Create data usage monitoring function:
+
+Monthly limit: 50 GB
+Warning at 80% usage
+Warning message: "Warning: {X}GB left for {Y} days"
+Safe message: "Safe: {Z}GB/day available"
+Test Cases (input → output):
+
+(40, 10) → "Warning: 10GB left for 10 days"
+(20, 15) → "Safe: 2.0GB/day available"
+
+def check_data_usage(gb_used, days_left):
+    limit = 50
+    remaining = limit - gb_used
+    daily_average = remaining / days_left
+
+    if (gb_used / limit) >= 0.8:
+        return f"Warning: {remaining}GB left for {days_left} days"
+    return f"Safe: {daily_average:.1f}GB/day available"
+
+
+
+20
+Account Login Handler
+
+Create a function that handles login attempts with error handling:
+
+Check username length (min 5 chars)
+Password must have numbers
+Raise specific errors for each case
+Handle errors gracefully
+Test Cases (input → output):
+
+("user", "pass123") → "Error: Username too short"
+("username", "password") → "Error: Password must contain numbers"
+("username", "pass123") → "Login successful"
+
+def validate_login(username, password):
+    try:
+        if len(username) < 5:
+            raise ValueError("Username too short")
+        if not any(char.isdigit() for char in password):
+            raise ValueError("Password must contain numbers")
+        return "Login successful"
+    except ValueError as e:
+        return f"Error: {str(e)}"
