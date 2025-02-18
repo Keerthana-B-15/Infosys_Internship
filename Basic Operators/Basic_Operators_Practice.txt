@@ -1,0 +1,300 @@
+1
+Check Odd or Even
+
+Write a python function is_even that takes a number as input and returns True if it’s even, otherwise False.
+
+def is_even(number):
+    if number % 2 == 0:
+        return True
+    else:
+        return False
+
+
+print(is_even(10)) 
+True
+
+2
+Check for Free Delivery!
+
+For an e-commerce platform Candy, orders above $50 qualify for free delivery.
+Write a python function check_free_delivery to check if the order qualifies for a free delivery!
+If the order is eligible for a free delivery, return 'Yay, free delivery!'.
+Otherwise return 'Oops, no free delivery!'.
+order_amount = 50  # Don’t change this value!
+
+def check_free_delivery(order_amount):
+    # Check for free delivery
+    if order_amount > 50:
+        return 'Yay, free delivery!'
+    else: 
+        return 'Oops, no free delivery!'
+
+3
+Check Eligibility for Discounts
+
+A customer is eligible for a discount if they either spend more than ₹5000 or have a membership and spend more than ₹3000. Write the expression to calculate if the customer is eligible for a discount.
+
+spending = 3500
+has_membership = True
+
+eligible_for_discount = spending > 5000 or (has_membership and spending > 3000)
+print(eligible_for_discount)
+
+4
+Detect a Quadratic Equation
+
+For an equation ax^2 + bx + c = 0, it's quadratic if a ≠ 0. Write a function is_quadratic(a, b, c) to return True if it's a quadratic equation and False otherwise.
+def is_quadratic(a, b, c):
+    return a != 0
+
+print(is_quadratic(1, 2, 3))  
+print(is_quadratic(0, 2, 3))  
+True
+False
+
+5
+Check Voting Eligibility
+
+A person can vote if they are -
+
+18 years old or older.
+A citizen of the country.
+Write an expression that checks if a person satisfies these conditions.
+
+age = 17
+citizen = True
+
+can_vote = age >= 18 and citizen
+print(can_vote) 
+False
+
+6
+Calculate Grade Based on Marks
+
+Given a student's marks out of 100:
+
+If marks ≥ 90, the grade is A.
+If marks ≥ 75, the grade is B.
+If marks ≥ 50, the grade is C.
+Otherwise, the grade is F.
+Complete the program to calculate and print the grade.
+
+marks = 88
+
+if marks >= 90:
+    grade = 'A'
+elif marks >= 75:
+    grade = 'B'
+elif marks >= 50:
+    grade = 'C'
+else:
+    grade = 'F'
+
+print(grade)
+B
+
+7
+Calculate Compound Interest
+
+Write a function to calculate compound interest using the formula:
+Where: - (P): Principal amount (the initial sum of money)
+
+(R): Annual interest rate (in percentage)
+
+(T): Time period (in years)
+
+
+def compound_interest(principal, rate, time):
+    ci = principal * ((1 + rate / 100) ** time) - principal
+    return ci
+
+print(compound_interest(10000, 5, 2))
+1025.0
+
+8
+Eras Tour Ticket Revenue Analysis!
+
+The Taylor Swift Eras Tour has sold tickets across three seating categories: General Admission, VIP, and Ultra VIP. The ticket sales data is as follows:
+
+General Admission: 25,000 tickets at $100 each
+
+VIP: 5,000 tickets at $250 each
+
+Ultra VIP: 1,000 tickets at $500 each
+
+Additionally, a 5% service charge is applied to the total revenue from ticket sales.
+
+You need to calculate the following:
+
+The total revenue (before the service charge).
+The final revenue (after deducting the service charge).
+Check if the final revenue crossed the $10,000,000 milestone.
+
+# Ticket sales data
+general_tickets = 25000
+general_price = 100
+
+vip_tickets = 5000
+vip_price = 250
+
+ultra_vip_tickets = 1000
+ultra_vip_price = 500
+
+service_charge_rate = 5 / 100  # 5%
+
+# Step 1: Calculate total revenue
+total_revenue = (general_tickets * general_price) + (vip_tickets * vip_price) + (ultra_vip_tickets * ultra_vip_price)
+
+# Step 2: Apply service charge
+final_revenue = total_revenue * (1 - service_charge_rate)
+
+# Step 3: Check if milestone is reached
+milestone_reached = final_revenue > 10000000
+
+print(total_revenue)   
+print(final_revenue)    
+print(milestone_reached) 
+4250000
+4037500.0
+False
+
+9
+Discount Calculator for a Shopping Spree
+
+You are shopping online and have three items in your cart. The store offers discounts based on the total price:
+
+If the total cost is greater than ₹5000, you get a 20% discount.
+If the total cost is between ₹3000 and ₹5000 (both inclusive), you get a 10% discount.
+Otherwise, no discount is applied.
+Complete the program to calculate and print the final price after applying the discount.
+
+# Prices of items
+item1 = 2000
+item2 = 1800
+item3 = 1500
+
+# Calculate the total cost
+total_cost = item1 + item2 + item3
+
+# Use comparison and arithmetic operators to calculate the discount
+if total_cost > 5000:
+    discount = total_cost * 0.20
+elif total_cost >= 3000:
+    discount = total_cost * 0.10
+else:
+    discount = 0
+
+# Calculate final price
+final_price = total_cost - discount
+
+print(f"Total Cost: ₹{total_cost}")
+print(f"Discount: ₹{discount}")
+print(f"Final Price: ₹{final_price}")
+Total Cost: ₹5300
+Discount: ₹1060.0
+Final Price: ₹4240.0
+
+10
+Split the Bill with Friends
+
+You and your friends went to a restaurant and ordered food. You want to split the bill equally, but there's a condition:
+
+If the total bill is perfectly divisible among the group, each person pays an equal amount.
+If the total bill is not divisible by the number of people, round the total bill up to the nearest ₹100 (i.e 1234 becomes 1300).
+After rounding, if the bill is still not perfectly divisible by the number of friends, round up the amount each person has to pay to the next whole number.
+Define a program Split_Bill that takes the bill amount and the number of friends as input and calculates the total adjusted bill and the amount that each person needs to pay.
+
+def Split_Bill(bill, friends):
+    # Step 1: Check if the total bill is divisible by the number of friends
+    if bill % friends == 0:
+        per_person = bill / friends
+        return f"Total bill is ₹{bill} and each person pays ₹{per_person}"
+
+    # Step 2: If not divisible, round up to the next multiple of 100
+    bill = ((bill // 100) + 1) * 100  
+
+    # Step 3: Calculate per person amount after rounding
+    per_person = bill / friends
+
+    # Step 4: If there is any remainder, round up to the next whole number
+    if per_person != int(per_person):
+        per_person = int(per_person) + 1
+
+    return f"Total bill is ₹{bill} and each person pays ₹{per_person}"
+
+11
+Weekend Road Trip Decision
+
+You and your friends are planning a weekend road trip. Here's the situation:
+
+Weather condition: The weather should not be rainy.
+Car availability: At least one of you or your friend should have a car.
+Budget: The total budget should be at least ₹5000, and both of you should have money to contribute.
+If all the above conditions are satisfied your program should return Pack your bags! You're going on the road trip!,. Otherwise, it should return Stay home and plan for another time..
+
+Complete the program to determine the outcome.
+
+def road_trip(weather, you_have_car, friend_has_car, your_budget, friend_budget):
+# Use logical operators to check all conditions
+    if weather != "rainy" and (you_have_car or friend_has_car) and ((your_budget + friend_budget)>= 5000) and your_budget > 0 and friend_budget > 0 :
+        decision = "Pack your bags! You're going on the road trip!"
+    else:
+        decision = "Stay home and plan for another time."
+
+    return decision
+
+12
+Secret Code Lock
+
+You have discovered an ancient treasure chest, but it’s locked with a 3-digit secret code. Each digit of the code ranges from 1 to 9.
+
+Here's what you know:
+
+The sum of the three digits is equal to 15.
+All three digits are different.
+You need to complete the python program find_secret_codes that satisfies both the above conditions.
+
+Note : The combinations must be unique. For example, if one combination is 1, 5, 9, other combinations like 5, 1, 9 or 9, 5, 1 should not be included.
+
+Correct!
+Start project before checking your activities.
+
+The unique secret code combinations are:
+Combination 1 : 1, 5, 9
+Combination 2 : 1, 6, 8
+Combination 3 : 2, 4, 9
+Combination 4 : 2, 5, 8
+Combination 5 : 2, 6, 7
+Combination 6 : 3, 4, 8
+Combination 7 : 3, 5, 7
+Combination 8 : 4, 5, 6
+
+def find_secret_codes():
+    print("The unique secret code combinations are:")
+
+    # Loop through all possible values for the three digits (1 to 9)
+    total_combinations = 0
+    for digit1 in range(1, 10):
+        for digit2 in range(digit1 + 1, 10):  # Start from digit1 + 1 to avoid repetition
+            for digit3 in range(digit2 + 1, 10):  # Start from digit2 + 1 to avoid repetition
+                # Check if the sum of the digits is 15
+                if digit1 + digit2 + digit3 == 15:
+                    total_combinations += 1 #increment the count by 1
+                    print(f"Combination {total_combinations} : {digit1}, {digit2}, {digit3}") 
+
+    return total_combinations
+find_secret_codes()
+The unique secret code combinations are:
+Combination 1 : 1, 5, 9
+Combination 2 : 1, 6, 8
+Combination 3 : 2, 4, 9
+Combination 4 : 2, 5, 8
+Combination 5 : 2, 6, 7
+Combination 6 : 3, 4, 8
+Combination 7 : 3, 5, 7
+Combination 8 : 4, 5, 6
+8
+
+
+
+
