@@ -1,0 +1,137 @@
+1. What is the output of the following code?
+  x = 10
+  y = 3.14
+  z = x + y
+  print(type(z))
+  
+  class 'str'
+  class 'int'
+  class 'complex'
+  class 'float'
+ans  class 'float'
+
+2. What is the data type of num = '10'?
+
+Boolean
+Integer
+String
+Float
+ans String
+
+3. Which is the correct way of defining a string variable?
+
+string age = 10
+age = "Ten"
+age = TRUE
+age = 10
+
+ans age = "Ten"
+
+4 What will int('10.5') return?
+10.5
+10
+0
+Error
+ans Error
+
+5 Which is a valid variable name?
+
+class
+_variable
+2variable
+break
+
+ans _variable
+
+6. x = 10
+y = "20"
+print(x + int(y))
+
+Error
+1020
+10
+30
+
+ans 30
+
+7. Which function is used to check the type of a variable?
+isType()
+type()
+typeof()
+checktype()
+
+ans type()
+
+
+8 Which of the following is NOT a valid string declaration?
+greeting = "Hello"
+greeting = 'Hello'
+greeting = '''Hello'''
+greeting = Hello
+
+ans greeting = Hello
+
+9. What is the result of (0.1 + 0.2 == 0.3)?
+False
+Error
+None
+True
+
+ans False
+
+10. What will print(5+True) result in?
+5
+6
+ValueError
+TypeError
+
+ans 6
+
+11. What will be output of print('2' * 3)?
+TypeError
+'6'
+'222'
+6
+
+ans '222'
+
+12.What will the given python code evaluate to?
+x = True
+y = False
+print(x + y)
+
+2
+1
+True
+0
+
+ans 1
+
+13. What will be the output of the given python code?
+z = 10
+print(isinstance(z, int))
+
+False
+10
+Error
+True
+
+ans True
+
+14. What does the isinstance() function return?
+None
+An object type
+A boolean (True or False)
+An integer (0 or 1)
+
+ans A boolean (True or False)
+
+15.What will be print(isinstance(str(42), str)) return?
+False
+Error
+True
+None
+
+ans True
+
+
