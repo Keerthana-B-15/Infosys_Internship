@@ -1,0 +1,473 @@
+1. Compare Class Performances
+Complete a function within the code that compares the performance of two classes, based on their average marks. Ensure the function validates the inputs, calculates the averages, and determines which class performed better. Additionally, it should be directed to handle potential errors with appropriate exceptions.
+
+def compare_class_performance(class_x_marks, class_y_marks):
+    try:
+        # Validate input
+        if not (isinstance(class_x_marks, list) and isinstance(class_y_marks, list)):
+            raise ValueError("Both inputs must be lists.")
+
+        if not (all(isinstance(mark, (int, float)) for mark in class_x_marks) and 
+                all(isinstance(mark, (int, float)) for mark in class_y_marks)):
+            raise ValueError("All marks must be integers or floats.")
+
+        if len(class_x_marks) == 0 or len(class_y_marks) == 0:
+            raise ValueError("Lists of marks cannot be empty.")
+
+        # Calculate averages
+        avg_x = sum(class_x_marks) / len(class_x_marks)
+        avg_y = sum(class_y_marks) / len(class_y_marks)
+
+        # Compare and return result
+        if avg_x > avg_y:
+            return "Class X is better than Class Y."
+        elif avg_x < avg_y:
+            return "Class Y is better than Class X."
+        else:
+            return "Both classes are equally good."
+
+    except Exception as e:
+        return f"Error: {e}"
+
+2. Total Price Calculation with Discount
+Fill in the missing parts of the code to create a function that calculates the total price of items after applying a discount. The function should validate the inputs, ensure the lists are of the same length, and handle potential errors.
+
+def calculate_total_price(items, prices, discount):
+    try:
+        if len(items) != len(prices): 
+            raise ValueError("Items and prices lists must be of same length")
+
+        total = 0
+        for i in range(len(items)):  
+            if items[i] < 0 or prices[i] < 0:
+                raise ValueError("Quantities and prices cannot be negative")
+            total += items[i] * prices[i]  
+
+        final_price = total * (1 - discount/100)  
+        return round(final_price, 2)
+    except Exception as e:  
+        return f"Error: {e}"
+
+3. Analyze Ratings of Movies
+Fill in the missing parts of the code to create a function that analyzes a list of ratings. The function validates the ratings, ensures they fall within a specified range, and calculates whether the average rating meets or exceeds a threshold.
+
+def analyze_ratings(ratings, threshold):  
+    try:
+        if not ratings:  
+            raise ValueError("Ratings list cannot be empty")
+
+        for rating in ratings:
+            if rating < 1 or rating > 5: 
+                raise ValueError("Ratings must be between 1 and 5")
+
+        average = sum(ratings) / len(ratings)  
+        return average >= threshold  
+    except Exception as e:  
+        return f"Error: {e}"
+
+4. Create a Password Strength Checker
+Fill in the missing parts of the code to create a function that evaluates the strength of a password based on specific criteria. The function checks for the presence of digits, uppercase and lowercase letters, special characters, and ensures a minimum length.
+
+def check_password_strength(password, min_length=8): 
+    try:
+        if len(password) < min_length:  
+            return "Minimum length of password is 8."
+
+        criteria = [0, 0, 0, 0]  
+        special_chars = ['@', '#', '$', '%', '&']
+
+        for char in password:  
+            if char.isdigit(): 
+                criteria[0] = 1
+            elif char.isupper():
+                criteria[1] = 1  
+            elif char.islower():  
+                criteria[2] = 1
+            elif char in special_chars:
+                criteria[3] = 1  
+
+        if sum(criteria) == 4: 
+            return "Strong Password"
+        else:
+            return "Weak Password"
+
+    except Exception as e:
+        return "Input should only be a string."
+
+
+5. Calculate Total Duration of a Playlist
+Fill in the missing parts of the code to create a function that calculates the total length of a playlist. The function takes a list of song durations (in seconds) and optionally skips specific songs based on their indices. It should return the total duration in the format HH:MM:SS.
+
+def calculate_playlist_length(song_durations, skip_list): 
+    try:
+        total_seconds = 0  
+        for i in range(len(song_durations)):
+            if i not in skip_list: 
+                if song_durations[i] < 0: 
+                    raise ValueError("Song duration cannot be negative")
+                total_seconds += song_durations[i]  
+
+        hours = total_seconds // 3600  
+        minutes = (total_seconds % 3600) // 60  
+        seconds = total_seconds % 60  
+
+        return f"{hours:02d}:{minutes:02d}:{seconds:02d}"  
+    except Exception as e:
+        return f"Error: {e}"
+
+6. Festival Discount Calculator
+Analyze the following code snippet, determine its output, and then enter the result.
+def apply_festival_discount(prices):
+    try:
+        result = []
+        for i, price in enumerate(prices):
+            if price > 1000:
+                discount = 0.2
+            elif i % 2 == 0:
+                discount = 0.1
+            else:
+                discount = 0.05
+            result.append(price * (1 - discount))
+        return [round(x, 2) for x in result]
+    except Exception as e:
+        return f"Error: {e}"
+
+print(apply_festival_discount([500, 1200, 800, 1500])[3])
+
+ans 1200.0
+
+7. Level Sequence Generator
+Analyze the following code snippet, determine its output, and then enter the result.
+
+def generate_level_sequence (seed_number):
+    try:
+        levels = []
+        current = seed_number
+
+        while current not in levels and current > 0:
+            levels.append(current)
+            if current % 2 == 0:
+                current = current // 2
+            else:
+                current = 3 * current + 1
+
+        return levels
+    except Exception as e:
+        return f"Error: {e}"
+
+print(generate_level_sequence (6) [4])
+
+ans 16
+
+8. Phone Number Formatter
+Analyze the following code snippet, determine its output, and then enter the result.
+
+def format_phone_number(numbers):
+    try:
+        result = []
+        for num in numbers:
+            if len(str(num)) != 10:
+                raise ValueError("Invalid number")
+            num_str = str(num)
+            formatted = f"({num_str[0:3]})-{num_str[3:6]}-{num_str[6:]}"
+            result.append(formatted)
+        return result
+    except Exception as e:
+        return f"Error: {e}"
+
+print (format_phone_number([1234567890, 9876543210])[1][1:4])
+
+ans 987
+
+9. Energy Consumption Calculator
+Analyze the following code snippet, determine its output, and then enter the result.
+def calculate_energy_bill(daily_usage):
+    try:
+        rates = [10, 15, 20] # different rates for usage ranges
+        total = 0
+        usage_sum = sum(daily_usage)
+
+        if usage_sum <= 100:
+            rate = rates[0]
+        elif usage_sum <= 200:
+            rate = rates[1]
+        else:
+            rate = rates[2]
+
+        return [round(day * rate, 2) for day in daily_usage]
+    except Exception as e:
+        return f"Error: {e}"
+
+print(calculate_energy_bill([5, 8, 12, 3])[1:2])
+ans [80]
+
+10. Word Score Calculator
+Analyze the following code snippet, determine its output, and then enter the result.
+
+def calculate_word_score(words):
+    try:
+        scores = []
+        vowels = 'aeiou'
+
+        for word in words:
+            score = 0
+            for char in word.lower():
+                if char in vowels:
+                    score += 2
+                else:
+                    score += 1
+            scores.append(score)
+        return scores
+    except Exception as e:
+        return f"Error: {e}"
+
+# What is the output?
+print(sum(calculate_word_score(['Hello', 'World'])))
+
+ans 13
+
+11. Temperature Converter
+Analyze the following code snippet, determine its output, and then enter the result.
+
+```
+def convert_temperatures (celsius_temps):
+    try:
+        fahrenheit = []
+        kelvin = []
+
+        for temp in celsius_temps:
+            f = (temp * 9/5) + 32
+            k = temp + 273.15
+            fahrenheit.append(round(f, 1))
+            kelvin.append(round (k, 1))
+
+        return [fahrenheit, kelvin]
+    except Exception as e:
+        return f"Error: {e}"
+
+print(convert_temperatures ([0, 100, -40])[0][1])
+```
+ans 212.0
+
+12. Birthday Reminder
+Analyze the following code snippet, determine its output, and then enter the result.
+def check_birthdays(dates, today):
+    try:
+        upcoming = []
+        for date in dates:
+            diff = date - today
+            if 0 <= diff <= 7:
+                upcoming.append(f"In {diff} days")
+            elif diff == 0:
+                upcoming.append("Today!")
+            else:
+                upcoming.append("Not soon")
+        return upcoming
+    except Exception as e:
+        return f"Error: {e}"
+
+# What is the output?
+print(check_birthdays([5, 12, 3, 8], 2)[1])
+
+ans Not soon
+
+13. Calculate Squares of Numbers
+The following code aims to compute the squares of numbers from a given list and return the results. However, the code contains several issues that prevent it from functioning as intended. Debug and correct the code to make it work properly.
+def square_numbers(numbers):
+    try:
+        squared = []
+        for num in numbers:
+            squared.append(num**2)
+        return squared
+    except Exception as e:
+        return str(e)
+
+14. Validate List Length
+
+The following code is intended to validate whether the length of a list exceeds a given limit. However, the code contains multiple issues that prevent it from working correctly. Debug and fix the code so it functions as expected.
+
+def validate_length(items, limit):
+    try:
+        if len(items) > limit:
+            return "List is too long"
+        else:
+            return "List is within the limit"
+    except Exception as e:
+        return str(e)
+
+15
+Find Sum of Odd Numbers
+
+The following code is intended to calculate the sum of all odd numbers in a given list. However, it contains several syntax and logical errors that prevent it from functioning correctly. Debug and fix the code so it works as intended.
+
+def sum_of_odds(numbers):
+    try:
+        odd_sum = 0
+        for num in numbers:
+            if num % 2 != 0:
+                odd_sum = odd_sum + num
+        return odd_sum
+    except Exception as e:
+        return str(e)
+
+16
+Check Divisibility
+
+The following code is intended to find and return a list of numbers from the input list that are divisible by a given divisor. However, there are several issues in the code that need to be fixed for it to work correctly.
+
+def find_divisible(numbers, divisor):
+    try:
+        if divisor == 0:
+            raise ValueError("Divisor cannot be zero.")
+        result = []
+        for num in numbers:
+            if num % divisor == 0:
+                result.append(num)
+        return result
+    except Exception as e:
+        return str(e)
+
+17. Calculate Factorials
+
+The following code is intended to calculate the factorial of each number in a list. However, it contains several issues that need to be fixed for it to function properly.
+
+def calculate_factorials(numbers):
+    try:
+        from math import factorial
+        factorials = []
+        for num in numbers:
+            factorials.append(factorial(num))
+        return factorials
+
+    except Exception as e:
+        return str(e)
+
+18. Count Words in Strings
+
+Write a function count_words that takes a list of sentences as input. The function should return a list where each element corresponds to the number of words in the respective sentence. Ensure that the input list contains only strings, and raise an exception if any item is not a string with a message All items in the list must be strings.
+
+def count_words(sentences):
+    try:
+        if not all(isinstance(sentence, str) for sentence in sentences):
+            raise ValueError("All items in the list must be strings")
+
+        word_counts = []
+        for sentence in sentences:
+            word_counts.append(len(sentence.split()))
+        return word_counts
+    except Exception as e:
+        return str(e)
+
+19. Find the Longest Word
+
+Write a function longest_word that takes a list of words as input and returns the longest word in the list. If the list is empty, raise a ValueError with message The list of words cannot be empty. The function should handle cases where the input list may be empty or contain non-string items.
+
+def longest_word(words):
+    try:
+        if not words:
+            raise ValueError("The list of words cannot be empty")
+        return max(words, key=len)
+    except Exception as e:
+        return str(e)
+
+20. Sort List by Length
+
+Write a function sort_by_length that takes a list of strings as input and returns a new list with the strings sorted in ascending order based on their lengths. Implement exception handling to Catch any exceptions and return an error message.
+
+def sort_by_length(strings):
+    try:
+        return sorted(strings, key=len)
+    except Exception as e:
+        return str(e)
+
+21. Filter Palindromes
+
+Write a function filter_palindromes that takes a list of words and returns a new list containing only the palindromes. A palindrome is a word that reads the same forward and backward (e.g., "level", "madam"). Implement exception handling to catch any exceptions and return an error message.
+
+def filter_palindromes(words):
+    palindromes = []
+    try:
+        for word in words:
+            if word == word[::-1]:
+                palindromes.append(word)
+        return palindromes
+    except Exception as e:
+        return str(e)
+
+22
+Compute Cumulative Sums
+
+Write a function cumulative_sums that takes a list of numbers as input and returns a new list where each element is the cumulative sum of the numbers in the original list up to that point. Implement exception handling to Catch any exceptions and return an error message.
+
+def cumulative_sums(numbers):
+    try:
+        cumulative = []
+        current_sum = 0
+        for num in numbers:
+            current_sum += num
+            cumulative.append(current_sum)
+        return cumulative
+    except Exception as e:
+        return str(e)
+
+23
+Generate Multiplication Table
+
+Write a function multiplication_table that takes two arguments: a number and a range_end. The function should return a list containing the multiplication table of the given number from 1 to range_end. Implement exception handling to Catch any exceptions and return an error message.
+
+def multiplication_table(number, range_end):
+
+    multiple_table = []
+
+    try:
+        for i in range(1, range_end + 1):
+            multiple_table.append(number * i)
+
+        return multiple_table
+
+    except Exception as
+
+24
+Check Prime Numbers
+
+Write a function check_primes that takes a list of numbers as input and returns a list containing only the prime numbers from the input list. Implement exception handling to catch any errors that may arise during the execution.
+
+def check_primes(numbers):
+    try:
+        def is_prime(num):
+            if num < 2:
+                return False
+            for i in range(2, int(num ** 0.5) + 1):
+                if num % i == 0:
+                    return False
+            return True
+
+        return [num for num in numbers if is_prime(num)]
+    except Exception as e:
+        return str(e)
+
+25
+Check Armstrong Number
+
+Write a function is_armstrong_number that checks if a given number is an Armstrong number and returns True if it is a Armstrong number and False if it is not. An Armstrong number (or Narcissistic number) is a number that is equal to the sum of its own digits each raised to the power of the number of digits. Raise a ValueError with message Input must be a non-negative integer if the input is a negative integer.
+def is_armstrong_number(number):
+
+    try:
+        if not isinstance(number, int) or number < 0:
+            raise ValueError("Input must be a non-negative integer")
+
+        digits = list(map(int, str(number)))
+        power = len(digits)
+
+        armstrong_sum = sum(digit ** power for digit in digits)
+
+        return number == armstrong_sum
+    except Exception as e:
+        return str(e)
+
+
+
+
+
+
+
