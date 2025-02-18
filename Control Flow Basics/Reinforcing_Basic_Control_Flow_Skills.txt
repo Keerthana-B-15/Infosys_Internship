@@ -1,0 +1,270 @@
+1. Decide Play Actions Based on Weather Conditions
+
+Complete the function to decide whether to play based on the weather. Consider 15 <= temperature < 35 as Normal.
+
+def weather_decision(temperature):
+    
+    if temperature >= 35:
+        return "It's too hot, I won't play."
+    elif temperature < 35 and temperature >=15 :  # Fill the condition
+        return "It's normal, I will play."
+    else:
+        return "It's cold, I will play with a jacket."
+
+2. Determine the Suitable Movie Based on Age
+
+Complete the function to decide which movie to watch based on age. Consider children below 7 years of age are not allowed to watch movies.
+
+def movie_night(age):
+    
+    if age >=7:  
+        return "You can watch a movie."
+    else:
+        return "You should watch a cartoon movie."
+
+3
+Filter Fruits with More Than Five Characters
+
+Complete the function to filter fruits with more than 5 characters from a list.
+
+def filter_fruits(fruits):
+    result = []
+    for fruit in fruits:
+        # Fill the condition below
+        if len(fruit) > 5:
+            result.append(fruit)
+    return result
+
+4
+Maximize Shopping with a Given Budget
+
+Complete the function to buy items until the budget is exhausted.
+
+def shopping_budget(prices, budget):
+    total_spent = 0
+    for price in prices:
+        total_spent += price
+        if total_spent > budget:  
+            return "Out of Budget"
+    return total_spent
+
+5
+Ice Cream Decision
+
+Predict the output of the following code:
+def ice_cream_decision (money):
+    if money >= 50:
+        return "I will buy an ice cream."
+    else:
+        return "I will save my money."
+
+print(ice_cream_decision (40))
+
+I will save my money.
+None
+I will buy an ice cream.
+Error
+
+ans I will save my money.
+
+6
+Exam Grades
+
+Predict the output of the following code:
+def exam_grade (marks):
+    if marks >= 90:
+        return "Excellent"
+    elif marks >= 70:
+        return "Good"
+    elif marks >= 50:
+        return "Average"
+    else:
+        return "Fail"
+
+print(exam_grade(65))
+
+Average
+Excellent
+Good
+Fail
+
+ans Average
+
+
+7
+Water Consumption
+
+Predict the output of the following code:
+def drink_water(daily_usage):
+total_used = 0
+for usage in daily_usage:
+if usage > 2:
+continue
+total_used += usage
+return total_used
+print (drink_water( [1.5, 2.1, 2.5, 1.8]))
+
+2.1
+2.5
+1.8
+3.3
+
+ans 3.3
+
+8
+Travel Distance
+
+Predict the output of the following code:
+
+def travel_distance(distances, max_distance):
+total_distance = 0
+for distance in distances:
+    if total_distance + distance > max_distance:
+        return "Cannot Travel"
+    total_distance += distance
+return total_distance
+
+print(travel_distance([10, 20, 30, 40], 50))
+
+50
+100
+90
+Cannot Travel
+
+ans Cannot Travel
+
+9
+Discount Checker
+
+This function is supposed to check if the bill amount exceeds 1000. If so, it should return Congratulations! You get a discount.. Otherwise, it should return No discount for you.. There is a logical error in the code. Fix it.
+
+def check_discount(bill_amount):
+    if bill_amount > 1000:
+        return "Congratulations! You get a discount."
+    else:
+        return "No discount for you."
+
+10
+Weekend Planner
+
+This function is designed to suggest an activity for the weekend based on the weather. If the weather is sunny, it should return Go for a hike.. For rainy, it should return Watch movies at home., and for snowy, Build a snowman.. However, the current implementation fails to give correct suggestions. Fix it.
+
+def weekend_plan(weather):
+    if weather == "sunny":
+        return "Go for a hike."
+    elif weather == "rainy":
+        return "Watch movies at home."
+    elif weather == "snowy":
+        return "Build a snowman."
+    else:
+        return "Stay home."
+
+11
+Find the Longest Word
+
+This function is supposed to find the longest word in a list of words. Fix the errors to make the function work correctly.
+
+def longest_word(words):
+    longest = ""  
+    for word in words:
+        if len(longest) < len(word): 
+            longest = word  
+    return longest
+
+12
+Gym Subscription
+
+Write a function gym_subscription that categorizes gym users based on the number of visits in a week. The function should return:
+
+Inactive if the number of visits is 0.
+Basic if the number of visits is between 1 and 3 (inclusive).
+Premium for more than 3 visits.
+
+def gym_subscription(visits):
+    if visits == 0:
+        return "Inactive"
+    elif 1 <= visits <= 3:
+        return "Basic"
+    else:
+        return "Premium"
+
+13
+Study Hours Tracker
+
+Write a function study_hours_tracker that takes a list of study hours as input and categorizes each entry based on the following conditions:
+
+Excellent for study hours greater than or equal to 6.
+Good for study hours between 3 and 5 (inclusive).
+Needs Improvement for study hours less than 3.
+The function should return a list of categories corresponding to the input study hours.
+
+def study_hours_tracker(study_hours):
+    categories = []
+    for hours in study_hours:
+        if hours >= 6:
+            categories.append("Excellent")
+        elif 3 <= hours <= 5:
+            categories.append("Good")
+        else:
+            categories.append("Needs Improvement")
+    return categories
+
+
+14
+Marathon Planner
+
+Write a function marathon_planner that calculates how many days it will take to accumulate a target total distance. The function should take two arguments:
+
+initial_distance (float): The distance to run on the first day (in kilometers).
+target_distance (float): The total target distance to accumulate (in kilometers).
+Here's how the function should work:
+
+You start by running the initial_distance on day 1.
+Each subsequent day, you run 10% more distance than the previous day.
+The distances from all days are added together (accumulated).
+The function should return the number of days needed for the accumulated total distance to reach or exceed the target_distance.
+For example, if you start with 5km and want to reach a total of 20km:
+
+Day 1: You run 5km (Total so far: 5km)
+Day 2: You run 5.5km (Total so far: 10.5km)
+Day 3: You run 6.05km (Total so far: 16.55km)
+Day 4: You run 6.655km (Total so far: 23.205km)
+The function would return 4 days, since that's when the total accumulated distance first exceeds 20km.
+
+def marathon_planner(initial_distance, target_distance):
+    total_distance = 0  
+    current_distance = initial_distance  
+    days = 0  
+    
+    while total_distance < target_distance:
+        total_distance += current_distance  
+        days += 1  
+        current_distance *= 1.1 
+    
+    return days
+
+15
+Vacation Budget
+
+Write a function vacation_budget that tracks the total expenses during a vacation. The function should:
+
+Skip any expenses greater than 500.
+Stop adding expenses once the total exceeds the provided budget.
+Return the total amount spent within the budget.
+
+def vacation_budget(expenses, budget):
+    total_spent = 0  
+
+    for expense in expenses:
+        if expense > 500:
+            continue  
+        
+        if total_spent + expense > budget:
+            break  
+        
+        total_spent += expense  
+
+    return total_spent
+
+
+
