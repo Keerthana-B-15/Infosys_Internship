@@ -1,0 +1,234 @@
+1
+Find the Index of Pi in a Given List
+
+Assume that you are compiling a list of mathematical constants, and you decide to represent all of them in a Python list, following this structure:
+
+maths_constants = [['name of constant', 'numeric value'],
+                   ['name of constant', 'numeric value'],
+                   ['name of constant', 'numeric value'],
+                   ...
+                ]
+As exemplified in the list maths_constants. However, upon review, you realize that you missed the value of Pi.
+
+Let's address this by first identifying its prospective index if it were included in the list, considering the alternating pattern of string constants and their numeric values.
+
+Store the index in the variable index_pi.
+
+2
+Insert the value 3.1416 after the name Pi in list of maths_constants.
+
+As you have found the index of the Pi, now you have to insert the value after the name Pi in the list.
+
+Your final complete list of mathematical constants including the value of Pi should be in the variable maths_constants.
+
+Input the value of Pi as 3.1416(in float)
+
+3
+Extend the list by adding all the elements from the given string
+
+Add all the characters of our even_string to the end of our list odd_list.
+
+[!] Important:
+
+Do Not Use Loops and if else statements.
+
+Add each character of the string, not the whole string.
+
+After extending, the final result will be: [99, 101, 103, 105, 107, 109, '2', '4', '6', '8', '9']
+
+Start project before checking your activities.
+
+4
+Remove the last element from the list odd_list
+
+As our odd_list = [99, 101, 103, 105, 107, 109, '2', '4', '6', '8', '9'], we need to remove '9'.
+
+Start project before checking your activities.
+
+Student Data Activities
+In this section, we utilize a list of student details imported from the file student.txt for various activities. Each element in the list represents a student and contains their name, student ID, age, grade, and subject. Accessing individual student information is achieved by indexing the list. For instance, student_list[0] will provide the information for the first student, student_list[1] for the second student, and so on.
+
+Now, each student list comprises five elements:
+
+[
+    ['name', 'student_id', 'age', 'grade', 'subject'],
+    ['name', 'student_id', 'age', 'grade', 'subject'],
+    [...],
+    ...
+]
+Please note that the list provided here is a randomly generated sample and does not represent real student data.
+
+5
+How many students are there in our dataset student_list
+
+The composition of our dataset student_list:
+
+[['name', 'student_id', 'age','grade','subject'],
+['name', 'student_id', 'age','grade','subject'],
+[...],...]
+Start project before checking your activities.
+
+6
+What's the name of the 400th student in our student_list
+
+Your task is to identify the name of the 400th student in our dataset. Each element in the dataset is a list of five items:
+
+[
+['name', 'student_id', 'age', 'grade', 'subject'],
+['name', 'student_id', 'age', 'grade', 'subject'],
+... among others...
+]
+Example of input: Alex
+
+Start project before checking your activities.
+
+7
+Check the correct age and subject of our student at 273rd index
+
+Select the correct age and subject of our student at the 273rd index.
+
+
+Age: 18
+
+
+Subject: History
+
+
+Subject: Science
+
+
+Age: 19
+
+Start project before checking your activities.
+
+8
+Put the students from the index 98 to 214 into the list select_student
+
+Create a list select_student from the original list(student_list), starting at index 98 up to, but not including, index 214.
+
+Make sure to not change the order of the students.
+
+Start project before checking your activities.
+
+9
+Find the name, age, grade, subject of the last student from our select_student list.
+
+From the previous activity, we have the list select_student which contains the students from the index 98 to 214. Now we need to find the name, age, grade, subject of the last student from our select_student list. Store the values in the variables name, age, grade, and subject respectively.
+
+Start project before checking your activities.
+
+10
+Get the age of each student and store it in the list students_age
+
+Convert the ages into int as currently they are type str (string).
+
+Loop through the list student_list, access the age, cast it to int, and append it to the new list variable students_age.
+
+Start project before checking your activities.
+
+11
+What is the average age of the students
+
+Use the list students_age created in the previous activity and find the average age of the students.
+
+Average/mean Age is defined as the sum of the age of all the students divided by the number of students.
+
+Start project before checking your activities.
+
+12
+How many students have History as their subject, how many have English and how many have Math
+
+Iterate through the list student_list and check for each of these subjects, incrementing each time the variable for the corresponding subject and store the result in the variables history_lovers, english_lovers and maths_lovers respectively.
+
+We assume that in the list student_list, any particular student can have multiple subjects and also have multiple grades in the same subject. Hence, we count that student only once. For example, if a student has History as one of the subjects and has an A grade in History as well as a B grade in History, we count that student only once.
+
+Start project before checking your activities.
+
+13
+Separate all A graders and all B graders from the list student_list
+
+Create two lists a_graders and b_graders with the name, age, grade, and favorite subject of the students. Put students with A grades to the list a_graders and students with B graders to the list b_graders
+
+Expected output for a_graders:
+
+[['Luna', '18', 'A', 'English'],
+ ['Anthony', '18', 'A', 'Math'],
+ ['Bella', '17', 'A', 'History'],
+ ['Lucy', '17', 'A', 'History'],
+ ['Brooklyn', '18', 'A', 'History'],
+ ['Ava', '18', 'A', 'Art'],
+ ['Riley', '17', 'A', 'Math'],
+ ...
+]
+Start project before checking your activities.
+
+14
+Find the grade of a particular student.
+
+Find the grade of the student with the name Isaac and age 16 and subject Science.
+
+Enter your answer in the input box below.
+
+Start project before checking your activities.
+
+15
+How many students are there whose name starts with the letter S.
+
+How many students are there whose name starts with the letter S in the list student_list?
+
+There are multiple students with the same name in the list student_list. You should count each student only once. Use student id to identify different students.
+
+
+33
+
+
+73
+
+
+38
+
+
+37
+
+Start project before checking your activities.
+
+16
+How many students are under 17
+
+How many students are under 17 in the list student_list?
+
+There are multiple students with the same name in the list student_list. You should count each student only once. Use student id to identify different students.
+
+
+154
+
+
+30
+
+
+99
+
+
+145
+
+Start project before checking your activities.
+
+17
+What is the minimum & maximum age of the students
+
+Input Example: Min: 20, Max: 29.
+
+Start project before checking your activities.
+
+18
+Remove the student from the list student_list.
+
+Remove the student whose name is Luna, age is 18, grade is E and subject is Geography from the list student_list. If there are multiple students with the same name, age, grade, and subject, remove all of them.
+
+Start project before checking your activities.
+
+19
+Count the number of occurrence of the student in the student_list
+
+Count the number of occurrences of the student whose name is Luna and age is 16 in the list student_list. If there are multiple students with the same name and age, count all of them.
+
