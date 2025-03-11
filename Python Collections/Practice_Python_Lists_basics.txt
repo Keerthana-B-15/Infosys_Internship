@@ -1,0 +1,252 @@
+1
+Append 'world' to list
+
+The variable l contains a simple list with 3 elements. Append the string "world" to the end of the list l.
+
+ans
+l.append("world")
+2
+Concatenate the two lists
+
+Concatenate the two lists l1 and l2 and store the results in the list concat_result.
+
+Important!l1 and l2 should NOT be modified. This should be an immutable operation, only concat_result should be affected.
+
+ans
+The concat operation works by just using the overloaded + symbol:
+
+concat_result = l1 + l2
+It's an immutable operation.
+
+3
+Concatenate, shortest first
+
+Define the function concatenate_shortest_first that receives two lists, l1 and l2 and returns the lists concatenated, BUT, the trick is that the SHORTEST list should be the first one appearing in the resulting list.
+
+ans
+The simplest way would be to use an if/else statement:
+
+def concatenate_shortest_first(l1, l2):
+    if len(l1) <= len(l2):
+        shortest = l1
+        longest = l2
+    else:
+        shortest = l2
+        longest = l1
+
+    return shortest + longest
+Or even shorter:
+
+def concatenate_shortest_first(l1, l2):
+    if len(l1) <= len(l2):
+        return l1 + l2
+    else:
+        return l2 + l1
+4
+How many words does the variable words contain?
+
+The variable words contains a list of words. How many words does it contain?
+
+14854
+ans
+There are 14854 words. You can check with:
+
+len(words)
+5
+What's the 500th word in the words list?
+
+Can you find the 500th word? Enter it below and check.
+
+copes
+ans
+Lists are 0-indexed, so, the 500th word is indexed with 499:
+
+>>> words[499]
+'copes'
+6
+Select the sublist containing the words from position 100th to 150th
+
+Select the sublist containing the words from the position 100th to 150th in the variable words_100_to_150.
+
+Important! Both the 100th and 150th words should be included in the sublist. Also, remember that lists are 0-indexed.
+
+ans
+We must remember that lists are 0-indexed, so the indexes we want are from 99 (100th word) to 149 (150th word). But, we also must remember that in slicing (words[lower_limit: upper_limit]) the upper_limit is NOT included. So we must go 1 over it to 150:
+
+words_100_to_150 = words[99: 150]
+7
+Select the sublist containing the last 50 words
+
+Select the sublist of words containing the last 50 elements. Store your result in the variable last_50_words.
+
+ans
+We can use negative indexing to select things from the end of the list:
+
+last_50_words = words[-50: ]
+Alternatively, we must find the index of the word that is the 50th to last:
+
+>>> len(words)-50
+14804
+And then select from that position towards the end:
+
+words[14804: ]
+But it's really inconvenient, using negative indexes is preferred.
+
+8
+Check the words that are part of the words list
+
+Check only the words that are part of the words list. If the word is not included in the list, don't check it.
+
+
+python
+
+
+water
+
+
+david
+
+
+panda
+
+
+dank
+
+
+blank
+
+ans
+Use the membership operator in:
+
+>>> "panda" in words
+True
+List Iteration
+9
+How many words finish with the character x?
+
+Use iteration to count how many words finish with the character x.
+
+84
+Correct
+There are 84 words that finish with the character x:
+
+count = 0
+for word in words:
+    if word.endswith('x'):
+        count += 1
+count
+
+>>> 84
+10
+Find all the words that have the substring cc in them
+
+Use iteration to create a sublist of all the words that contain the substring cc in them (example, bocci, yucca) and store them in the variable words_with_cc.
+
+Correct
+words_with_cc = []
+for word in words:
+    if 'cc' in word:
+        words_with_cc.append(word)
+words_with_cc
+11
+Find all the words that start and end with an y
+
+Use iteration to create a sublist of all the words that both start and end with the character y (example, yobby, yummy). Store your results in the variable words_with_y.
+
+Correct
+words_with_y = []
+for word in words:
+    if word.startswith('y') and word.endswith('y'):
+        words_with_y.append(word)
+words_with_y
+12
+Find the words that contain the characters s, m and b in order of occurrence
+
+Nerd moment of the day...
+
+In 1992, Andrew Tridgell was decided on creating an open source re-implementation of the privative SMB networking protocol for Linux/Unix. He developed the first version in just a few weeks, but once he was ready to publish it, he needed a name for it.
+
+To come up with the name, he found a list of all the words that contained the characters S, M, and B in them, in that particular order. That's how [Samba](https://en.wikipedia.org/wiki/Samba_(software%29) was born. The word samba has the characters s, m and b in order.
+
+Your task is to replicate Andrew's results by creating a sublist of all the words in words that have s, m and b in that order. Store your results in the variable samba_words.
+
+Correct
+# Function to check if 's', 'm', and 'b' appear in order
+def is_samba_word(word):
+    s_index = word.find('s')
+    if s_index == -1:
+        return False
+
+    rest_after_s = word[s_index + 1:]
+    m_index = rest_after_s.find('m')
+    if m_index == -1:
+        return False
+
+    rest_after_m = rest_after_s[m_index + 1:]
+    return 'b' in rest_after_m
+
+# Filter the words that contain 's', 'm', and 'b' in order
+samba_words = []
+for word in words:
+    if is_samba_word(word):
+        samba_words.append(word)
+
+print(samba_words)
+13
+How many words contain the substring zaz?
+
+In this activity, you will use iteration on the list words to count how many words contain the substring zaz in them.
+
+2
+Correct
+There are 2 words matching.
+
+zaz_words = []
+for word in words:
+    if "zaz" in word:
+        zaz_words.append(word)
+
+print(len(zaz_words))
+14
+Find all the words in an even position
+
+Let's define the position of a word in words starting in 1st, 2nd, etc. For example, here are the first 10 words in words:
+
+   1st      2nd      3rd      4th     5th ...                              9th      10th
+['jetty', 'wizzo', 'cuppa', 'cohoe', 'gurks', 'squad', 'beisa', 'shrug', 'fossa', 'fluyt']
+Your job is to create a sublist containing words only in positions numerically "even", that is, positions 2, 4, 6, etc.
+
+Store your results in the variable even_positioned_words.
+
+Your expected results are:
+
+['wizzo', 'cohoe', 'squad', 'shrug', ...]
+Correct
+There are two possible solutions to the task. First, one using iteration and the enumerate function:
+
+even_positioned_words = []
+for idx, word in enumerate(words, 1):
+    if idx % 2 == 0:
+        even_positioned_words.append(word)
+But there's no need to use iteration if we can just use indexing. Starting in position 1 (which is the second position, every 2 steps):
+
+even_positioned_words = words[1::2]
+15
+Iterate the list in reverse order, and find all the words that start with s and end with y
+
+So far, you've created sublists by just iterating words as it is. For this task, you need to create the sublist words_s_y_reversed containing words that start with s and end with y, but the order has to be reversed.
+
+Example, in words you can find:
+
+[jetty, ..., seepy, ..., seely, ..., stary]
+Your sublist should contain:
+
+>>> words_s_y_reversed
+[stary, seely, seepy, ...]
+Correct
+The best solution is to iterate the words list in reverse order (note the words[::-1] in the for loop):
+
+words_s_y_reversed = []
+for word in words[::-1]:
+    if word.startswith('s') and word.endswith('y'):
+        words_s_y_reversed.append(word)
