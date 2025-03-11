@@ -1,0 +1,191 @@
+1
+Course Enrollments and Common Students
+
+Two distinct courses have student enrollments. Develop sets for each course and identify students who are concurrently enrolled in both courses.
+
+Students in Course A: ["Alice", "Bob", "Carol", "David"] Students in Course B: ["Bob", "David", "Eve", "Frank"]
+
+Construct sets for both Course A and Course B as course_a_students and course_b_students. Subsequently, ascertain the students who are enrolled in both courses as common_students.
+
+Correct
+course_a_students = {"Alice", "Bob", "Carol", "David"}
+course_b_students = {"Bob", "David", "Eve", "Frank"}
+common_students = course_a_students.intersection(course_b_students)
+2
+Unique Keywords in Articles
+
+Keyword lists from two separate articles are provided. Establish sets for each article's keywords and identify the distinctive keywords utilized in both articles.
+
+Keywords in Article 1: ["data", "analysis", "Python", "statistics"] Keywords in Article 2: ["machine learning", "Python", "data", "programming"]
+
+Generate sets for the keywords in both articles, denoting them as article1_keywords and article2_keywords. Determine the unique keywords utilized in both articles and designate them as unique_keywords.
+
+Correct
+article1_keywords = {"data", "analysis", "Python", "statistics"}
+article2_keywords = {"machine learning", "Python", "data", "programming"}
+unique_keywords = article1_keywords.symmetric_difference(article2_keywords)
+3
+Distinctive Email Addresses
+
+Two distinct sources have provided email addresses. Construct sets for each source's email addresses and uncover the unique email addresses encompassing both sources.
+
+Email addresses from Source A: ["alice@example.com", "bob@example.com", "carol@example.com"] Email addresses from Source B: ["carol@example.com", "david@example.com", "eve@example.com"]
+
+Formulate sets for the email addresses in both sources, labeling them as sourceA_emails and sourceB_emails. Store your result in unique_emails.
+
+Correct
+sourceA_emails = {"alice@example.com", "bob@example.com", "carol@example.com"}
+sourceB_emails = {"carol@example.com", "david@example.com", "eve@example.com"}
+unique_emails = sourceA_emails.union(sourceB_emails)
+Activities on Badge Data
+There are 15 badges have in the DataWars Discord Server. Below are names of all Badges:
+
+Data Novice: Variable name is data_novice_badge
+Data Explorer: Variable name is data_explorer_badge
+Analytics Enthusiast
+Python Prodigy
+Insight Seeker
+Data Detective
+Trend Tracker
+Problem Solver
+Data Ninja
+Algorithm Apprentice
+Data Wizard
+Analytics Guru
+Statistic Sage
+Machine Learning Maestro
+Data Scientist
+4
+Add New Student to Data Novice Badge
+
+Incorporate the new student named Sam into the Data Novice badge group.
+
+Correct
+data_novice_badge.add("Sam")
+5
+Remove Student from Badge Sets
+
+Eliminate the student named Elvia from all badge sets as she has left the server.
+
+Correct
+student_name = 'Elvia'
+all_badges = [data_novice_badge, data_explorer_badge, analytics_enthusiast_badge, python_prodigy_badge, insight_seeker_badge, data_detective_badge, trend_tracker_badge, problem_solver_badge, data_ninja_badge, algorithm_apprentice_badge, data_wizard_badge, analytics_guru_badge, statistic_sage_badge, machine_learning_maestro_badge, data_scientist_badge]
+
+for badge in all_badges:
+    badge.discard(student_name)
+6
+Find the union of 'Data Explorer' and 'Analytics Enthusiast' badge sets.
+
+Find the union of data_explorer_badge and analytics_enthusiast_badge sets and store the result in a variable named union_de_ae.
+
+The variable union_de_ae is a type set.
+
+Correct
+union_de_ae = data_explorer_badge.union(analytics_enthusiast_badge)
+7
+Check if 'Chandler' is in the set
+
+Check if Chandler is in the Badge Insight Seeker.
+
+
+Chandler is not in the set
+
+
+Chandler is in the set
+
+Correct
+if 'Chandler' in insight_seeker_badge:
+    print("Chandler is in the set")
+else:
+    print("Chandler is not in the set")
+8
+Find students with Data Wizard badge but not with Data Scientist badge.
+
+Find students with Data Wizard badge but not with Data Scientist badge and store the result in a variable named data_wizard_not_scientist.
+
+Correct
+data_wizard_not_scientist = data_wizard_badge.difference(data_scientist_badge)
+9
+Count total number of member in Analytics Enthusiast badge
+
+Determine the total number of members who have received the Analytics Enthusiast badge.
+
+Enter your answer in below imput box as an integer.
+
+496
+Correct
+len(analytics_enthusiast_badge)
+10
+Find students with badges in Data Explorer, Problem Solver, and Data Ninja categories.
+
+Find students with badges in Data Explorer, Problem Solver, and Data Ninja categories and store the result in a variable named data_explorer_problem_solver_data_ninja.
+
+Correct
+data_explorer_problem_solver_data_ninja = data_explorer_badge.intersection(problem_solver_badge, data_ninja_badge)
+11
+Find students with Data Novice and Data Detective badges, but not both.
+
+Find students with Data Novice and Data Detective badges, but not both and store the result in a variable named data_novice_xor_data_detective.
+
+Correct
+data_novice_xor_data_detective = data_novice_badge.symmetric_difference(data_detective_badge)
+12
+Check if Data Detective badge is a subset of Insight Seeker badge.
+
+Check if Data Detective badge is a subset of Insight Seeker badge.
+
+
+No, Data Detective badge is not a subset of Insight Seeker badge.
+
+
+Yes, Data Detective badge is a subset of Insight Seeker badge.
+
+Correct
+if data_detective_badge.issubset(insight_seeker_badge):
+    print("Yes, `Data Detective` badge is a subset of `Insight Seeker` badge")
+else:
+    print("No, `Data Detective` badge is not a subset of `Insight Seeker` badge")
+13
+Update Trend Tracker Badge Set with Common Students
+
+Perform an update on the Trend Tracker badge set by including students who hold both the Problem Solver and Data Ninja badges. Transfer these common students to the Trend Tracker badge.
+
+Make sure you only add the students to Trend Tracker, do not remove them from any badge.
+
+Correct
+trend_tracker_badge.update(problem_solver_badge.intersection(data_ninja_badge))
+14
+Find the student with the shortest and longest name in the Data Novice badge set.
+
+Determine the student with the shortest and longest name within the "Data Novice" badge set.
+
+Provide your response in the box below, separating the shortest student's name from the longest student's name using a comma. For instance: Ella, Maria.
+
+There are multiple names for longest name, you have to write name which comes first in alphabetical order.
+
+Jo, Alphonsine
+Correct
+shortest_name = min(data_novice_badge, key=len)
+longest_names = [name for name in data_novice_badge if len(name) == len(max(data_novice_badge, key=len))]
+
+# Display the results
+print(f"Shortest Name: {shortest_name}")
+print(f"Longest Names: {', '.join(longest_names)}")
+Here, for the largest name we used list comprehension iterates through each name in data_novice_badge. It checks if the length of the name is equal to the length of the maximum length name in data_novice_badge. If true, it includes that name in longest_names. This ensures that all names with the maximum length are included.
+
+15
+Check if Analytics Guru badge set is a superset of Python Prodigy badge set.
+
+Select the correct answer.
+
+
+Yes
+
+
+No
+
+Correct
+if analytics_guru_badge.issuperset(python_prodigy_badge):
+    print("Yes")
+else:
+    print("No")
