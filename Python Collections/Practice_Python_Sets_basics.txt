@@ -1,0 +1,387 @@
+1
+Union of two sets
+
+We have two sets s1 & s2 defined. Now take the union of set s1 with set s2. Store your answer in the variable s1_union_s2.
+
+Correct
+To take the union of two sets s1 and s2 in Python, you can use the union() method or the | operator. The union of two sets returns a new set that contains all the unique elements from both sets.
+
+s1.union(s2)
+or
+
+s1_union_s2 = s1 | s2
+Both of these methods will create a new set s1_union_s2that contains all the unique elements from both s1 and s2.
+
+set union
+A general Venn Diagram of Union of two sets.
+
+2
+Intersection of two sets
+
+Now take the intersection of set s1 and set s2. Store your answer in the variable s1_intersection_s2.
+
+Correct
+To take the intersection of two sets s1 and s2 in Python, you can use the intersection() method or the & operator. The intersection of two sets returns a new set that contains the elements that are common to both sets.
+
+s1_intersection_s2=s1.intersection(s2)
+s1_intersection_s2 = s1 & s2
+Both of these methods will create a new set s1_intersection_s2 that contains the elements that are present in both s1 and s2. It includes only the elements that are common to both sets.
+
+set intersection
+A general Venn Diagram of intersection of two sets.
+
+3
+Difference of two sets
+
+We have two sets s1 & s2 defined. Take the difference of set s2 from set s1. Store your answer in the variable s1_difference_s2.
+
+Short explanation for set difference
+The set difference operation in this context refers to finding the elements that are present in s1 but not in s2. In other words, it calculates the elements that are unique to s1 and excludes any elements that are also present in s2. As visualized in the Venn Diagram:
+set difference
+
+Correct
+To perform the set difference operation in Python, you can use the - operator or the difference() method. Here's how you can calculate the difference of s2 from s1 and store it in the variable s1_difference_s2:
+
+s1.difference(s2)
+or we can also use the - operator for set difference like the solution below:
+
+s1_difference_s2 = s1 - s2
+After executing this code, s1_difference_s2 will contain the elements that are in s1 but not in s2.
+
+set difference
+A general Venn Diagram of difference of two sets.
+
+4
+Subset of a set
+
+Is the set s1 a subset of the set s2.
+
+
+True
+
+
+False
+
+Correct
+s1.issubset(s2)
+subset
+A general Venn Diagram of subset
+
+5
+Symmetric difference of two sets
+
+Let's take the symmetric difference of set s1 from set s2. And store the answer in the variable s2_symmetric_difference_s1.
+
+Short explanation for symmetric difference of two sets
+The symmetric difference operation on sets calculates the elements that are present in either s1 or s2, but not in both. In other words, it excludes the elements that are common to both sets.
+
+Correct
+To take the symmetric difference of two sets s1 and s2 in Python, you can use the symmetric_difference() method or the ^ operator. The symmetric difference of two sets returns a new set that contains the elements that are present in either of the sets, but not in both.
+
+s2_symmetric_difference_s1=s1.symmetric_difference(s2)
+s2_symmetric_difference_s1=s_symmetric_difference = s1 ^ s2
+Both of these methods will create a new set s2_symmetric_difference_s1 that contains the elements that are present in either s1 or s2, but not in both sets. It excludes the elements that are common to both sets.
+
+symmetric difference
+A general Venn Diagram of symmetric difference of two sets.s
+
+6
+Length of a set
+
+What will be the length of set created from the elements {2,3,4,5,5,3,9,0,1,2}.
+
+7
+Correct
+s1={2,3,4,5,5,3,9,0,1,2}
+len(s1)
+7
+Indexing on set
+
+Can we use indices on set to find elements at different positions?
+
+Try running:
+
+s1 = {1,2,3,4,5,6,0,9,8,7}
+s1[0] # try getting the first element of the set
+s1[-1] # try getting the last element 
+
+No, it will gives Error: python TypeError: 'set' object is not subscriptable
+
+
+Yes, Output: s1[0] gives 1
+
+
+Yes, Output: s1[-1] gives 1
+
+Correct
+No, you cannot index elements in a set in Python because sets are unordered collections of unique elements. This means that the elements in a set are not stored in a specific order, and therefore cannot be accessed by their index position.
+
+s1 = {1,2,3,4,5,6,0,9,8,7}
+s1[0]
+
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/Datawars_content/lab-8318bcc1-python-collections-sets-basics-practice-1/notebooks/Project.ipynb Cell 23 in 2
+      1 s1 = {1,2,3,4,5,6,0,9,8,7}
+----> 2 s1[0] # try getting the first element of the set
+      3 s1[-1] # try getting the last element 
+
+TypeError: 'set' object is not subscriptable
+Real Activities: Working with Capital Cities
+
+8
+Number of elements in the set
+
+Find the number of capitals in the set.
+
+149
+Correct
+len(world_capitals)
+9
+Add elements to the set
+
+Add a new capital Ankara to the set world_capitals
+
+Correct
+world_capitals.add('Ankara')
+
+10
+Remove an element from the set
+
+Remove the capital Cairo from the set world_capitals
+
+Correct
+world_capitals.remove('Cairo')
+world_capitals
+11
+Add more than one elements to a set
+
+Add two more capitals Delhi and London to the set world_capitals
+
+Important: Try to add both of them at onces, instead of adding them separately using .add() method.
+
+Correct
+world_capitals |= {'Delhi', 'London'}
+world_capitals
+12
+Perform membership checks and answer which capitals are part of the set
+
+Which of the following capitals are in the set world_capitals
+
+
+Paris
+
+
+Rome
+
+
+London
+
+
+Dublin
+
+Correct
+print('Rome' in world_capitals)
+print('London' in world_capitals)
+print('Paris' in world_capitals)
+print('Dublin' in world_capitals)
+
+13
+Sort the languages in the set popular_languages in descending mode
+
+Sort the elements in popular_languages in descending mode and store them in the variable sorted_langs, which will be a list. The result will look something like:
+
+>>> print(sorted_lang)
+['Swift',
+ 'Ruby',
+ 'R',
+ 'Python',
+ ...
+ 'C++',
+ 'C#']
+Correct
+The sorted function can be applied to different collections, including sets. By default, it'll sort the elements in ascending mode. The reverse parameter switches to descending mode:
+
+sorted_langs = sorted(popular_languages, reverse=True)
+14
+Find the intersection
+
+Find the languages which are both popular and are also used for web development. Store your answer in popular_web_langs
+
+Correct
+popular_web_langs = popular_languages.intersection(web_languages)
+popular_web_langs
+15
+Find the difference
+
+Find the difference in mobile languages from popular languages. Store your answer in the variable diff_mobile_popular.
+
+Correct
+diff_mobile_popular = popular_languages.difference(mobile_languages)
+diff_mobile_popular
+16
+Clear all elements from a set
+
+Clear all the popular languages.
+
+Correct
+popular_languages.clear()
+popular_languages
+Quiz Questions
+Set to Succeed
+
+17
+Which of the following is a valid way to create an empty set in Python?
+
+
+s = {}
+
+
+s = set([])
+
+
+s = {}()
+
+
+s = set()
+
+Correct
+The correct answers are:
+
+s = set()
+# or the second solution
+s=set([])
+18
+If you create a set with the individual characters of the word "Hello", how many elements will it contain?
+
+
+5
+
+
+3
+
+
+6
+
+
+4
+
+Correct
+Sets remove duplicates. The correct answer 4.
+
+19
+Which of the following set operations returns a set containing elements that are in either of the two sets, but not in both?
+
+
+symmetric difference
+
+
+intersection
+
+
+difference
+
+
+union
+
+Correct
+The correct option is symmetric differences
+
+20
+Find the output
+
+s1 = {1, 2, 3}
+s2 = {2, 3, 4}
+s3 = s1.difference(s2)
+s4 = s2.difference(s1)
+s5 = s3.symmetric_difference(s4)
+print(s5)
+
+set()
+
+
+{1,4}
+
+
+{1,2,3,4}
+
+
+{}
+
+Correct
+{1,4}
+21
+Which of the following is the correct syntax to add multiple elements to a set at once?
+
+
+s.add(1, 2, 3)
+
+
+s |= {1, 2, 3}
+
+
+s.extend([1, 2, 3])
+
+
+s.update([1, 2, 3])
+
+Correct
+
+s |= {1, 2, 3}
+s.update([1, 2, 3])
+
+22
+Which of the following is a set comprehension that generates a set of squares of the first 10 natural numbers?
+
+Important: There is a difference in the definition of natural numbers; some define 0 as a natural number, while others do not. In this activity, we are considering 0 as not a natural number. For more information, see Wikipedia.
+
+
+{x for x in range(10)}
+
+
+{x for x in range(1, 11) if x % 2 == 0}
+
+
+{x**2 for x in range(10)}
+
+
+{x**2 for x in range(1, 11)}
+
+Correct
+{x**2 for x in range(1, 11)}
+
+23
+Which of the following is a method that removes all elements from a set?
+
+
+delete_all()
+
+
+discard_all()
+
+
+remove_all()
+
+
+clear()
+
+Correct
+The method clear works...
+
+24
+Which of the following is a method that removes a specified element from a set?
+
+
+pop()
+
+
+None of above
+
+
+remove()
+
+
+discard()
+
+Correct
+The correct answers are remove and discard.
