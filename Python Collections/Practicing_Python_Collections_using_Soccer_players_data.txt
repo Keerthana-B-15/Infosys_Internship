@@ -1,0 +1,647 @@
+1
+Who's the player with the most assists in the Premier League?
+
+Find the player with the highest number of assists that played AT LEAST1000 minutes. The assists value is computed "per 90 minute". Provide the full name of the player, followed by their assists number. Only consider players who have played at least 1000 minutes and played in Premier League.
+
+Example of the expected input: Harry Kane, 0.33
+
+Important: the whitespace between the comma and the number is important.
+
+Kevin De Bruyne, 0.62
+Correct
+top_assists = None
+for player in players:
+    name,  nation, pos, squad, comp, *rest = player
+    assists = player[-1]
+    minutes = player[-5]
+    if comp != 'Premier League' or minutes < 1000:
+        continue
+    if top_assists is None or assists > top_assists[1]:
+        top_assists = (name, assists)
+
+>>> top_assists
+('Kevin De Bruyne', 0.62)
+2
+Find the player with the highest goals-to-shots ratio in the Premier League.
+
+Only consider players:
+
+who have taken at least 10 shots per 90 minutes( as shots per 90 minutes is a normalized value, it is not the total number of shots taken by the player in the season so, we need to consider only those players who have taken at least 10 shots per 90 minutes not the total number of shots taken by the player in the season)
+played in the Premier League
+Hint: The goals-to-shots ratio is computed by dividing the number of goals by the number of shots.
+
+Example of expected input: Robert Lewandowski, 0.56
+
+Important: The whitespace between comma and the number is important.
+
+João Gomes, 0.1
+Correct
+top_ratio_player = None
+for player in players:
+    name, nation, pos, squad, comp, *rest = player
+    goals, shots = map(int, player[-4:-2])
+    if comp != 'Premier League' or shots < 10:
+        continue
+    ratio = goals / shots
+    if top_ratio_player is None or ratio > top_ratio_player[1]:
+        top_ratio_player = (name, ratio)
+
+top_ratio_player
+Correct answer: João Gomes, 0.1
+
+3
+Determine the average age of players in each squad.
+
+Create a dictionary named average_age_per_squad where the keys are the squad names, and the values are the average ages rounded to the nearest whole number.
+
+Example of expected output:
+
+{'Liverpool': 26, 'Manchester City': 27, 'Chelsea': 25, ...}
+
+Hint: To calculate the average age, sum up the ages of all players in each squad and divide by the number of players in that squad.
+
+Correct
+# Initialize an empty dictionary to store the sum of ages and the count of players for each squad
+squad_age_count = {}
+
+# Calculate the sum of ages and the count of players for each squad
+for player in players:
+    squad_name = player[3]  # Index 3 corresponds to the 'Squad' column
+    age = player[5]  # Index 5 corresponds to the 'Age' column
+
+    if squad_name in squad_age_count:
+        squad_age_count[squad_name]['sum_age'] += age
+        squad_age_count[squad_name]['count'] += 1
+    else:
+        squad_age_count[squad_name] = {'sum_age': age, 'count': 1}
+
+# Calculate the average age for each squad and round it to the nearest whole number
+average_age_per_squad = {
+    squad: round(data['sum_age'] / data['count']) for squad, data in squad_age_count.items()
+}
+
+print(average_age_per_squad)
+4
+Which player has the highest playing time in the Premier League.
+
+Find the player who has played the most minutes in Premier League.
+
+Example of input: Milan
+
+Tim Ream
+Correct
+# Create an empty list to store players from the 'Premier League'
+filtered_players = []
+
+# Loop through each player in the 'players' list
+for player in players:
+    # Check if the player's 'Comp' (competition) is 'Premier League' (index 4)
+    if player[4] == 'Premier League':
+        # If the player is from 'Premier League', add the player to the 'filtered_players' list
+        filtered_players.append(player)
+
+# Initialize variables to keep track of the highest minutes played and the best player
+highest_mins = 0.0
+best_player = ""
+
+# Loop through each player in the 'filtered_players' list
+for player in filtered_players:
+    # Get the number of minutes played by the player (index 9)
+    player_mins = player[9]
+
+    # Check if the player's minutes played is higher than the current highest_mins
+    if player_mins > highest_mins:
+        # If yes, update the highest_mins and the best_player variables
+        highest_mins = player_mins
+        best_player = player[0]  # The player's name is at index 0
+
+# The variable 'best_player' will now store the name of the player with the highest minutes played in the Premier League
+best_player
+Correct answer: Tim Ream
+
+5
+What is the highest number of minutes played by a player in La Liga
+
+Find the maximum minutes played in La Liga. Here La Liga is the Premier League/Comeptition name.
+
+1890
+Correct
+# Create an empty list to store players from 'La Liga'
+filtered_players = []
+
+# Loop through each player in the 'players' list
+for player in players:
+    # Check if the player's 'Comp' (competition) is 'La Liga' (index 4)
+    if player[4] == 'La Liga':
+        # If the player is from 'La Liga', add the player to the 'filtered_players' list
+        filtered_players.append(player)
+
+# Initialize variables to keep track of the highest minutes played and the best player
+highest_mins = 0.0
+best_player = ""
+
+# Loop through each player in the 'filtered_players' list (players from 'La Liga')
+for player in filtered_players:
+    # Get the number of minutes played by the player (index 9)
+    player_mins = player[9]
+
+    # Check if the player's minutes played is higher than the current highest_mins
+    if player_mins > highest_mins:
+        # If yes, update the highest_mins and the best_player variables
+        highest_mins = player_mins
+        best_player = player[0]  # The player's name is at index 0
+
+# The variable 'highest_mins' will now store the highest number of minutes played by a player in La Liga
+
+highest_mins
+Correct answer: 1890
+
+6
+Which team, on average, scores the highest number of goals per game in the Bundesliga
+
+Consider only teams that:
+
+where players have played at least 10 matches
+Are in the Bundesliga competition.
+Average Goals per Game is defined as: the total goals scored divided by the number of games played by the team.
+
+Find the highest average goals per game and the name of the team which scored the highest goals per game and select the correct answer from the options below.
+
+
+Highest Average Goals Per Game: 0.20863309352517986
+
+
+Team with Highest Average Goals Per Game: Bayern Munich
+
+
+Team with Highest Average Goals Per Game: Borussia Dortmund
+
+
+Highest Average Goals Per Game: 1.045332345455
+
+Correct
+# Filter teams that have played at least 10 matches and are in the Bundesliga
+qualified_teams = {}
+for player in players:
+    squad_name = player[3]  # Index 3 corresponds to the 'Squad' column
+    matches_played = player[7]  # Index 7 corresponds to the 'MP' column
+    goals_scored = player[10]  # Index 10 corresponds to the 'Goals' column
+
+    if player[4] == 'Bundesliga' and matches_played >= 10:
+        if squad_name in qualified_teams:
+            qualified_teams[squad_name]['matches_played'] += matches_played
+            qualified_teams[squad_name]['goals_scored'] += goals_scored
+        else:
+            qualified_teams[squad_name] = {'matches_played': matches_played, 'goals_scored': goals_scored}
+
+# Calculate the average goals per game for each qualified team
+average_goals_per_game = {
+    squad: data['goals_scored'] / data['matches_played'] for squad, data in qualified_teams.items()
+}
+
+# Find the team with the highest average goals per game
+highest_average_goals = max(average_goals_per_game.values())
+highest_average_goals_team = [squad for squad, avg_goals in average_goals_per_game.items() if avg_goals == highest_average_goals][0]
+
+print("Highest Average Goals Per Game:", highest_average_goals)
+print("Team with Highest Average Goals Per Game:", highest_average_goals_team)
+Data Transformation
+7
+Transform the list of lists into a list of dictionaries
+
+Create a new variable named players_dict that contains ALL the players but each player represented as a dictionary, containing only the keys:
+
+player
+nation
+position
+squad
+competition
+age
+The resulting variable should have this structure:
+
+[{'player': 'Brenden Aaronson',
+  'nation': 'USA',
+  'position': 'MFFW',
+  'squad': 'Leeds United',
+  'competition': 'Premier League',
+  'age': 22},
+ {'player': 'Yunis Abdelhamid',
+  'nation': 'MAR',
+  'position': 'DF',
+  'squad': 'Reims',
+  'competition': 'Ligue 1',
+  'age': 35}]
+Correct
+players_dict = []
+for player in players:
+    player_data = {
+        'player': player[0],       # Index 0 corresponds to the 'Player' column
+        'nation': player[1],       # Index 1 corresponds to the 'Nation' column
+        'position': player[2],     # Index 2 corresponds to the 'Pos' column
+        'squad': player[3],        # Index 3 corresponds to the 'Squad' column
+        'competition': player[4],  # Index 4 corresponds to the 'Comp' column
+        'age': player[5],          # Index 5 corresponds to the 'Age' column
+    }
+    players_dict.append(player_data)
+
+players_dict
+8
+Create a new variable named players_by_nation that groups players by their respective nations.
+
+The variable should be a dictionary where the keys are the nation names, and the values are lists of players belonging to that nation.
+
+Each player should be represented as a dictionary containing the keys:
+
+player
+position
+squad
+competition
+age.
+Example of expected output:
+
+
+{'USA': [{'player': 'Brenden Aaronson',
+          'position': 'MFFW',
+          'squad': 'Leeds United',
+          'competition': 'Premier League',
+          'age': 31},
+         {'player': 'Tyler Adams',
+          'position': 'MF',
+          'squad': 'Leeds United',
+          'competition': 'Premier League',
+          'age': 31},
+          ...
+        ],
+        ...
+}
+Correct
+players_by_nation = {}
+
+for player in players:
+    name, nation, pos, squad, comp, age, *rest= player
+    player_info = {
+        'player': name,
+        'position': pos,
+        'squad': squad,
+        'competition': comp,
+        'age': age
+    }
+
+    if nation in players_by_nation:
+        players_by_nation[nation].append(player_info)
+    else:
+        players_by_nation[nation] = [player_info]
+
+
+players_by_nation
+9
+Create a new variable named players_by_squad that groups players by their respective squads.
+
+The variable should be a dictionary where the keys are the squad names, and the values are lists of players belonging to that squad.
+
+Each player should be represented as a dictionary containing the keys:
+
+player
+position
+squad
+competition
+age.
+Example of expected output:
+
+{'Leeds United': [{'player': 'Brenden Aaronson',
+                    'position': 'MFFW',
+                    'squad': 'Leeds United',
+                    'competition': 'Premier League',
+                    'age': 22},
+                  {'player': 'Tyler Adams',
+                   'position': 'MF',
+                   'squad': 'Leeds United',
+                   'competition': 'Premier League',
+                   'age': 23},
+                    ...
+                ],
+                ...
+}
+Correct
+players_by_squad = {}
+
+for player in players:
+    squad = player[3]
+    player_data = {
+        'player': player[0],
+        'position': player[2],
+        'squad': player[3],
+        'competition': player[4],
+        'age': player[5]
+    }
+
+    if squad in players_by_squad:
+        players_by_squad[squad].append(player_data)
+    else:
+        players_by_squad[squad] = [player_data]
+
+players_by_squad
+10
+Calculate the average age of players for each competition
+
+Create a new variable named average_age_by_competition that contains the average age for each competition. The competitions should be the keys, and the values should be the average ages rounded to one decimal place.
+
+Example of expected output:
+
+{
+    'Premier League': 27.5,
+    'La Liga': 26.8,
+    'Bundesliga': 25.9,
+    ...
+}
+
+Note that, the value for age is rounded to the nearest 1 decimal point
+
+Correct
+from statistics import mean
+
+average_age_by_competition = {}
+
+for player in players:
+    competition = player[4] # Index 4 corresponds to the 'Comp' column which contains the competition name
+    age = player[5]        # Index 5 corresponds to the 'Age' column which contains the player's age
+
+    if competition in average_age_by_competition:
+        average_age_by_competition[competition].append(age)
+    else:
+        average_age_by_competition[competition] = [age]
+
+for competition, ages in average_age_by_competition.items():
+    average_age_by_competition[competition] = round(mean(ages), 1)
+
+average_age_by_competition
+11
+Transform the players data to dict-of-dict
+
+Transform the dataset to create a new variable named average_stats_by_position. This variable should contain the average values of goals, assists, and shots on target (SoT) for each position across all players. The positions should be the keys, and the values should be dictionaries with the keys goals, assists, and sot, representing the average values for each statistic.
+
+Example of expected output:
+
+
+{
+    'FW': {'goals': 12.5, 'assists': 5.3, 'sot': 8.1},
+    'MF': {'goals': 6.2, 'assists': 8.7, 'sot': 3.9},
+    'DF': {'goals': 2.8, 'assists': 3.1, 'sot': 1.6},
+    ...
+}
+
+Note that, the values for goals, assists, sot are rounded to the nearest 1 decimal point
+
+Correct
+average_stats_by_position = {}
+
+position_stats = {}
+
+for player in players:
+    name, nation, pos, squad, comp, *rest, goals, shots, sot, assists = player
+    goals = float(goals) 
+    assists = float(assists)
+    shots = float(shots)
+    sot = float(sot)
+
+    # Check if the position is already in the 'position_stats' dictionary
+    if pos in position_stats:
+        position_stats[pos]['goals'] += goals
+        position_stats[pos]['assists'] += assists
+        position_stats[pos]['shots'] += shots
+        position_stats[pos]['sot'] += sot
+        position_stats[pos]['count'] += 1
+    else:
+        # If the position is not in the 'position_stats' dictionary, add it
+        position_stats[pos] = {
+            'goals': goals,
+            'assists': assists,
+            'shots': shots,
+            'sot': sot,
+            'count': 1
+        }
+
+# Calculate the average stats for each position
+for pos, stats in position_stats.items():
+    average_stats_by_position[pos] = {
+        'goals': round(stats['goals'] / stats['count'], 1),
+        'assists': round(stats['assists'] / stats['count'], 1),
+        'sot': round(stats['sot'] / stats['count'], 1)
+    }
+
+
+average_stats_by_position
+Transformations/Aggregations
+12
+Calculate total goals per Competition.
+
+Create a dictionary containing each competition as key, and the sum of all the goals scored as a value. Store the result in the variable goals_per_comp. It should look something like:
+
+{
+    'Premier League': ...,
+    'Serie A': ...,
+    ...
+    'Bundesliga': ...
+}
+Correct
+goals_per_comp = {}
+for player in players:
+    name,  nation, pos, squad, comp, *rest = player
+    goals = player[-4]
+    goals_per_comp.setdefault(comp, 0)
+    goals_per_comp[comp] += goals
+goals_per_comp
+13
+Calculate the total number of minutes played by each squad across all competitions.
+
+Create a dictionary named total_minutes_by_squad where the keys are the squad names, and the values are the total minutes played by that squad.
+
+Example of expected output:
+
+
+{
+    'Manchester United': 4578,
+    'Real Madrid': 5123,
+    'Bayern Munich': 3984,
+    ...
+}
+
+
+Correct
+total_minutes_by_squad = {}
+
+for player in players:
+    name, nation, pos, squad, comp, age, born, mp, starts, minutes,*rest = player
+    total_minutes_by_squad[squad] = total_minutes_by_squad.get(squad, 0) + int(minutes)
+
+total_minutes_by_squad
+
+14
+Determine the average number of starts for players in each competition.
+
+Create a dictionary named average_starts_per_comp where the keys are the competition names, and the values are the average number of starts rounded to the nearest whole number.
+
+Example of expected output:
+
+{
+    'Premier League': 23,
+    'La Liga': 19,
+    'Bundesliga': 21,
+    ...
+}
+
+Correct
+starts_by_comp = {}
+for player in players:
+    name, nation, pos, squad, comp, age, born, mp, starts, *rest = player
+    starts_by_comp.setdefault(comp, []).append(int(starts))
+
+average_starts_per_comp = {}
+for comp, starts_list in starts_by_comp.items():
+    average_starts = round(sum(starts_list) / len(starts_list))
+    average_starts_per_comp[comp] = average_starts
+
+average_starts_per_comp
+15
+Calculate the max scorers per competition.
+
+Find the top scorers of each competition (maximum number of goals scored). Store your results in the variable top_scorers_per_comp. Attention! There might be more than one top scorer in the league, so your result should be a list of dictionaries containing each player and their goals as a tuple. Example:
+
+{
+    "Ligue 1": [
+        ("Lionel Messi", 14),
+        ("Kylian Mbappe", 14),
+    ],
+    'La Liga': [
+        ('Robert Lewandowski', 18)
+    ]
+}
+Correct
+top_scorers_per_comp = {}
+for player in players:
+    name,  nation, pos, squad, comp, *rest = player
+    goals = player[-4]
+    if comp not in top_scorers_per_comp:
+        top_scorers_per_comp[comp] = [(name, goals)]
+        continue
+    current_scorers = top_scorers_per_comp[comp]
+    current_top_goals = current_scorers[0][1]
+    if goals > current_top_goals:
+        top_scorers_per_comp[comp] = [(name, goals)]
+    elif goals == current_top_goals:
+        top_scorers_per_comp[comp].append((name, goals))
+top_scorers_per_comp
+16
+Convert the dataset into a new format - List of Dictionaries.
+
+Create a list named goals_and_assists_by_player which is a list of dictionaries. Each dictionary should contain the keys player, competition, goals, and assists.
+
+Example of expected output:
+
+[
+    {'player': 'Harry Kane', 'competition': 'Premier League', 'goals': 25, 'assists': 12},
+    {'player': 'Lionel Messi', 'competition': 'La Liga', 'goals': 30, 'assists': 18},
+    {'player': 'Cristiano Ronaldo', 'competition': 'Serie A', 'goals': 27, 'assists': 10},
+    ...
+]
+Correct
+goals_and_assists_by_player = []
+
+for player in players:
+    name, nation, pos, squad, comp, age, born, mp, starts, mins, goals, shots, sot, assists = player
+    goals_and_assists_by_player.append({
+        'player': name,
+        'competition': comp,
+        'goals': goals,
+        'assists': assists
+    })
+
+goals_and_assists_by_player
+17
+Calculate the total number of goals and assists for each player in the dataset
+
+Expected Output is a dictionary with the player name as the key and the value is a dictionary with keys goals and assists and their respective values.
+
+Example of expected output:
+
+{
+    'Harry Kane': {'goals': 2.5, 'assists': 1.2},
+    'Lionel Messi': {'goals': 3.0, 'assists': 1.8},
+    'Cristiano Ronaldo': {'goals': 2.7, 'assists': 11.0},
+    ...
+}
+Convert the goals and assists to float before adding them to the dictionary.
+
+Correct
+goals_and_assists_per_player = {}
+
+for player in players:
+    name, nation, pos, squad, comp, age, born, mp, starts, mins, goals, shots, sot, assists = player
+    goals = float(goals)
+    assists = float(assists)
+    if name not in goals_and_assists_per_player:
+        goals_and_assists_per_player[name] = {'goals': goals, 'assists': assists}
+    else:
+        goals_and_assists_per_player[name]['goals'] += goals
+        goals_and_assists_per_player[name]['assists'] += assists
+
+
+goals_and_assists_per_player
+18
+Groups players into different age groups
+
+Create a new variable named players_by_age_group that groups players into different age groups. The variable should be a dictionary where the keys are the age group names (e.g., 'Under 20', '20-25', '26-30', 'Over 30'), and the values are lists of players belonging to that age group. Each player should be represented as a dictionary containing the keys player, nation, position, squad, competition, and age.
+
+The age group is considered as:
+
+Under 20 i.e <20
+20-25 i.e 20 <= age <= 25
+26-30 i.e 26 <= age <=30
+Over 30 i.e >30
+Example of expected output:
+
+{
+    'Under 20': [
+        {'player': 'Player A', 'nation': 'Country A', 'position': 'Position A', 'squad': 'Squad A', 'competition': 'Competition A', 'age': 19},
+        {'player': 'Player B', 'nation': 'Country B', 'position': 'Position B', 'squad': 'Squad B', 'competition': 'Competition B', 'age': 18},
+        ...
+    ],
+    '20-25': [
+        {'player': 'Player C', 'nation': 'Country C', 'position': 'Position C', 'squad': 'Squad C', 'competition': 'Competition C', 'age': 22},
+        {'player': 'Player D', 'nation': 'Country D', 'position': 'Position D', 'squad': 'Squad D', 'competition': 'Competition D', 'age': 25},
+        ...
+    ],
+    ...
+}
+
+Correct
+players_by_age_group = {
+    'Under 20': [],
+    '20-25': [],
+    '26-30': [],
+    'Over 30': []
+}
+
+for player in players:
+    name, nation, pos, squad, comp, age, *rest = player
+    age = int(age)
+    if age < 20:
+        age_group = 'Under 20'
+    elif 20 <= age <= 25:
+        age_group = '20-25'
+    elif 26 <= age <= 30:
+        age_group = '26-30'
+    else:
+        age_group = 'Over 30'
+
+    players_by_age_group[age_group].append({
+        'player': name,
+        'nation': nation,
+        'position': pos,
+        'squad': squad,
+        'competition': comp,
+        'age': age
+    })
+
+
+players_by_age_group
