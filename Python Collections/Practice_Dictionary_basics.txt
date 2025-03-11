@@ -1,0 +1,246 @@
+1
+Access the values using key
+
+Find the height of the player 'LeBron James' from the dictionary players_data and store it in a variable lebron_height.
+
+Correct
+lebron_height = players_data['LeBron James']['height']
+In the above code, we are using the key LeBron James to get the value from the dictionary players_data. The value is a dictionary which contains the data of the player. We are using the key height to get the height of the player.
+
+2
+Add a new player to the player data dictionary
+
+Add a new player to the dictionary players_data. The new player is Stephen Curry and his data is given below:
+
+{'jersey': 30,
+ 'team': 'Golden State Warriors',
+ 'position': 'PG',
+ 'rating': 97,
+ 'salary': 40231758,
+ 'height': '6-3 / 1.91',
+ 'weight': '185 lbs',
+ 'dob': 'March 14, 1988',
+ 'country': 'USA',
+ 'college': 'Davidson',
+ 'draft_year': 2009,
+ 'draft_round': 1,
+ 'draft_peak': 7}
+Correct
+players_data['Stephen Curry'] = {'jersey': 30,
+ 'team': 'Golden State Warriors',
+ 'position': 'PG',
+ 'rating': 97,
+ 'salary': 40231758,
+ 'height': '6-3 / 1.91',
+ 'weight': '185 lbs',
+ 'dob': 'March 14, 1988',
+ 'country': 'USA',
+ 'college': 'Davidson',
+ 'draft_year': 2009,
+ 'draft_round': 1,
+ 'draft_peak': 7}
+In the above code, we are using the key Stephen Curry to add the value to the dictionary players_data.
+
+3
+Remove the salary value for 'Kevin Durant'
+
+Remove the salary value for the player Kevin Durant from the dictionary players_data.
+
+Correct
+del players_data['Kevin Durant']['salary']
+In the above code, we are using the key Kevin Durant to get the value from the dictionary players_data. The value is a dictionary which contains the data of the player. We are using the key salary to remove the salary value for the player. We are using the del keyword to remove the salary value.
+
+4
+Access the keys and values of dictionary
+
+Create a list named players_names which contains the names of all the players in the dictionary players_data. Create another list named players_details which contains every details of all the players in the dictionary players_data. The details of the players should be in the form of a dictionary.
+
+The output of the list players_names and players_details should be as follows:
+
+players_names = ['LeBron James', 'Kevin Durant', 'Stephen Curry']
+
+players_details = [{'rating': 97,
+  'jersey': '#23',
+  'team': 'Los Angeles Lakers',
+  'position': 'F',
+  'b_day': '12/30/84',
+  'height': '6-9 / 2.06',
+  'weight': '250 lbs. / 113.4 kg.',
+  'salary': '$37436858',
+  'country': 'USA',
+  'draft_year': 2003,
+  'draft_round': 1,
+  'draft_peak': 1,
+  'college': nan,
+  'version': 'NBA2k20'},
+  {'rating': 96,
+  'jersey': '#7',
+  'team': 'Brooklyn Nets',
+  'position': 'F',
+  'b_day': '09/29/88',
+  'height': '6-10 / 2.08',
+  'weight': '240 lbs. / 108.9 kg.',
+  'salary': '$37199000',
+  'country': 'USA',
+  'draft_year': 2007,
+  'draft_round': 1,
+  'draft_peak': 2,
+  'college': 'Texas',
+  'version': 'NBA2k20'},
+  ...
+  ]
+Correct
+players_names = list(players_data.keys())
+players_details = list(players_data.values())
+In the above code, we are using the keys() method to get the list of keys from the dictionary players_data. We are using the values() method to get the list of values from the dictionary players_data.
+
+5
+Find the number of players in the player data dictionary
+
+How many players are there in the dictionary players_data?
+
+50
+Correct
+len(players_data)
+6
+Create a new dictionary players_rating
+
+Create a dictionary named players_rating which contains the names of the players as keys and the rating of the players as values. The dictionary should contain the rating of all the players in the dictionary players_data.
+
+The output of the dictionary players_rating should be as follows:
+
+players_rating = {'LeBron James': 97,
+ 'Kevin Durant': 96,
+ 'Stephen Curry': 95,
+ 'James Harden': 95,
+ 'Kawhi Leonard': 95,
+ 'Giannis Antetokounmpo': 96,
+ 'Anthony Davis': 94,
+ ...}
+Correct
+players_rating = {}
+for name, details in players_data.items():
+    players_rating[name] = details['rating']
+7
+Check if value is present or not in the dictionary
+
+Check if the 'Joel Embiid' and 'Jimmy' are present in the dictionary players_data. Select all the correct options.
+
+
+Jimmy is present
+
+
+Joel Embiid is not present
+
+
+Jimmy is not present
+
+
+Joel Embiid is present
+
+Correct
+print('Joel Embiid' in players_data)
+print('Jimmy' in players_data)
+In the above code, we are using the in keyword to check if the key is present in the dictionary.
+
+8
+Merge two dictionaries
+
+Merge below two dictionaries into a single dictionary named players_data_merged. First dictionary containing player stats and second dictionary containing player salaries.
+
+player_stats = {'LeBron James': {'rating': 97, 'jersey': '#23', 'team': 'Los Angeles Lakers', 'position': 'F', 'b_day': '12/30/84', 'height': '6-9 / 2.06', 'weight': '250 lbs. / 113.4 kg.', 'country': 'USA', 'draft_year': 2003, 'draft_round': 1, 'draft_peak': 1, 'college': None},
+                'Kawhi Leonard': {'rating': 97, 'jersey': '#2', 'team': 'Los Angeles Clippers', 'position': 'F', 'b_day': '06/29/91', 'height': '6-7 / 2.01', 'weight': '225 lbs. / 102.1 kg.', 'country': 'USA', 'draft_year': 2011, 'draft_round': 1, 'draft_peak': 15, 'college': 'San Diego State'},
+                'Giannis Antetokounmpo': {'rating': 96, 'jersey': '#34', 'team': 'Milwaukee Bucks', 'position': 'F-G', 'b_day': '12/06/94', 'height': '6-11 / 2.11', 'weight': '242 lbs. / 109.8 kg.', 'country': 'Greece', 'draft_year': 2013, 'draft_round': 1, 'draft_peak': 15, 'college': None},
+                'Kevin Durant': {'rating': 96, 'jersey': '#7', 'team': 'Brooklyn Nets', 'position': 'F', 'b_day': '09/29/88', 'height': '6-10 / 2.08', 'weight': '230 lbs. / 104.3 kg.', 'country': 'USA', 'draft_year': 2007, 'draft_round': 1, 'draft_peak': 2, 'college': 'Texas'},
+                'James Harden': {'rating': 96, 'jersey': '#13', 'team': 'Houston Rockets', 'position': 'G', 'b_day': '08/26/89', 'height': '6-5 / 1.96', 'weight': '220 lbs. / 99.8 kg.', 'country': 'USA', 'draft_year': 2009, 'draft_round': 1, 'draft_peak': 3, 'college': 'Arizona State'}}
+
+
+player_salaries = {'LeBron James': '$37436858', 'Kawhi Leonard': '$32742000', 'Giannis Antetokounmpo': '$25842697', 'Kevin Durant': '$37199000', 'James Harden': '$38199000'}
+After merging the two dictionaries, the output of the dictionary players_data_merged should be as follows:
+
+players_data_merged == {'LeBron James': {'rating': 97, 'jersey': '#23', 'team': 'Los Angeles Lakers', 'position': 'F', 'b_day': '12/30/84', 'height': '6-9 / 2.06', 'weight': '250 lbs. / 113.4 kg.', 'country': 'USA', 'draft_year': 2003, 'draft_round': 1, 'draft_peak': 1, 'college': None, 'salary': '$37436858'},
+
+...
+}
+Correct
+players_data_merged = {}
+for player in player_stats:
+    players_data_merged[player] = player_stats[player]
+    if player in player_salaries:
+        players_data_merged[player]['salary'] = player_salaries[player]
+In the above code, we are using a for loop to iterate over the player_stats dictionary. We are then adding the key and value to the players_data_merged dictionary. We are also checking if the player is present in the player_salaries dictionary. If the player is present, we are adding the salary to the players_data_merged dictionary.
+
+We can also use other methods to merge the dictionaries. But these worked differently with different dictionaries.
+
+Using update() method
+dict1 = {'a': 10, 'b': 8}
+dict2 = {'d': 6, 'c': 4}
+dict2.update(dict1)
+Using ** operator
+dict1 = {'a': 10, 'b': 8}
+dict2 = {'d': 6, 'c': 4}
+dict3 = {**dict1, **dict2}
+Using | operator
+dict1 = {'a': 10, 'b': 8}
+dict2 = {'d': 6, 'c': 4}
+dict3 = dict1 | dict2
+9
+Update the values for 'Mike Conley'
+
+Update the rating and salary for 'Mike Conley' in the players_data dictionary to 95 and '$34,000,000' respectively.
+
+Correct
+players_data['Mike Conley'].update({'rating': 95, 'salary': '$34,000,000'})
+In the above code, we are using the update() method to update the values for 'Mike Conley'.
+
+10
+Create a new dictionary with specific country
+
+Create a new dictionary players_data_usa with the players from the USA which contains the player name as the key and list of rating and team as the value.
+
+The result of the players_data_usa should look like this:
+
+{'LeBron James': [97, 'Los Angeles Lakers'],
+ 'Kawhi Leonard': [97, 'Los Angeles Clippers'],
+ 'James Harden': [96, 'Houston Rockets'],
+ 'Kevin Durant': [96, 'Brooklyn Nets'],
+...
+}
+Correct
+players_data_usa = {}
+for player in players_data:
+    if players_data[player]['country'] == 'USA':
+        players_data_usa[player] = [players_data[player]['rating'], players_data[player]['team']]
+In the above code, we are using a for loop to iterate over the players_data dictionary. We are then checking if the country is USA. If the country is USA, we are adding the player name and rating and team to the players_data_usa dictionary.
+
+11
+Create a new dictionary of teams from players_data
+
+Create a dictionary teams with the unique teams in the players_data dictionary as the key and the number of players in each team as the value.
+
+The result of the teams should look like this:
+
+{'Los Angeles Lakers': 2,
+ 'Los Angeles Clippers': 2,
+ 'Milwaukee Bucks': 3,
+ 'Brooklyn Nets': 2,
+...
+}
+Correct
+teams = {}
+for player in players_data:
+    if players_data[player]['team'] in teams:
+        teams[players_data[player]['team']] += 1
+    else:
+        teams[players_data[player]['team']] = 1
+In the above code, we are using a for loop to iterate over the players_data dictionary. We are then checking if the team is present in the teams dictionary. If the team is present, we are incrementing the count by 1. If the team is not present, we are adding the team to the teams dictionary with the count as 1.
+
+12
+Copy the dictionary and clear all the elements
+
+Copy the players_data dictionary to a new dictionary players_data_copy and clear all the elements from the players_data dictionary.
+
+Correct
+players_data_copy = players_data.copy()
+players_data.clear()
+In the above code, we are using the copy() method to copy the players_data dictionary to players_data_copy. We are then using the clear() method to clear all the elements from the players_data dictionary.
