@@ -1,0 +1,109 @@
+1
+Write the function is_mersenne to identify if a prime is a Mersenne prime
+
+Write the function is_mersenne that receives a single prime number p and returns True if it is a Mersenne prime, or False otherwise.
+
+Correct
+We'll follow the simple process of just iterating from 1 up to p and compute the formula 2^n - 1. But, as shown before, if the result of the formula exceeds p, we can break early and avoid the extra computations.
+
+Try changing the variable p to try different prime numbers. You know that 31 is a Mersenne.
+
+p = 27
+
+for i in range(1, p):
+    result = 2 ** i - 1
+    if result == p:
+        print(f"{p} is a Mersenne prime!")
+        break
+    if result > p:
+        print(f"`{i}^2 - 1 = {result}` is greater than {p}. Not a Mersenne prime :( Breaking")
+        break
+
+Now we can just wrap that logic in our function:
+
+def is_mersenne(p):
+    for i in range(1, p):
+        result = 2 ** i - 1
+        if result == p:
+            return True
+        if result > p:
+            return False
+2
+Find all Mersenne primes
+
+Now it's time to find which of the prime numbers in the primes variable are indeed Mersenne primes. Find all Mersenne primes and store them in the variable mersenne_primes. Your list will contain the elements [3, 7, 31, 127, ...].
+
+Correct
+mersenne_primes = []
+for p in primes:
+    if is_mersenne(p):
+        mersenne_primes.append(p)
+
+3
+Create the list mersenne_numbers
+
+Create a list of Mersenne numbers from 1 up to the one that is larger than the largest prime in the list of primes. That is, suppose our list of primes contained the first 12 primes: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
+
+You should start calculating all integers starting from 1
+
+1 = (2^1) - 1 = 1
+2 = (2^2) - 1 = 3
+3 = (2^3) - 1 = 7
+4 = (2^4) - 1 = 15
+5 = (2^5) - 1 = 31
+6 = (2^6) - 1 = 63  <<<< 63 is LARGER than the largest prime in our list, which is 37. This is NOT included.
+In this case, your list should contain only the mersenne numbers: [1, 3, 7, 15, 31].
+
+Correct
+The naive approach could be just using a while loop:
+
+largest_prime = primes[-1]
+mersenne_numbers = []
+i = 1
+while True:
+    result = 2 ** i - 1
+    if result > largest_prime:
+        break
+    mersenne_numbers.append(result)
+    i += 1
+But we know that while loops are "dangerous", so we could instead use a for-loop:
+
+largest_prime = primes[-1]
+mersenne_numbers2 = []
+
+for i in range(1, largest_prime):
+    result = 2 ** i - 1
+    if result > largest_prime:
+        break
+    mersenne_numbers2.append(result)
+Either way, we're breaking out of the loop as soon as we find that a result is greater than the largest prime number in the collection.
+
+4
+Even more efficient, turn mersenne_numbers into a set
+
+We'll use the list mersenne_numbers to check which numbers in primes are Mersenne numbers. So, the ultimate efficient gain will be to turn mersenne_numbers into a set, as the operations of membership in sets are O(1).
+
+Transform the variable mersenne_numbers into a set containing the same elements.
+
+Correct
+mersenne_numbers = set(mersenne_numbers)
+5
+Find Mersenne primes using mersenne_numbers
+
+Now, create a new variable efficient_mersenne_primes that contains all the mersenne numbers (same as before), but this time, check if the prime is a mersenne using the set mersenne_numbers created in the previous activity.
+
+Correct
+efficient_mersenne_primes = [p for p in primes if p in mersenne_numbers]
+Continue with
+Practice Dictionary basics
+Practice Dictionary basics
+easy
+Practicing Dictionary basics with Fruits data
+Practicing Dictionary basics with Fruits data
+easy
+Exploring LinkedIn Job Listings with Python Dictionaries
+Exploring LinkedIn Job Listings with Python Dictionaries
+hard
+Back to Track page or Explore all projects on the Catalog
+
+Did you like this project?
