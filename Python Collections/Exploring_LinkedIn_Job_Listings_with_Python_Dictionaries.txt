@@ -1,0 +1,396 @@
+1
+Find the Total Number of Companies Listed
+
+Find total numbers of companies listed and input the answer as an integer.
+
+96
+Correct
+len(job_listings_by_company_title)
+We can use the len() function to find the length of the dictionary. The length of the dictionary is the number of keys in the dictionary. In this case, the number of keys is the number of companies listed.
+
+2
+List Job Titles for a Company
+
+Given a specific company name, list all the job titles available in the job_listings_by_company_title dictionary. Store the job titles in a list named job_titles.
+
+Use IBM as the company name.
+
+Correct
+# Specify the company name
+company_name = "IBM"
+job_titles = []
+
+# Check if the company exists in the dictionary
+if company_name in job_listings_by_company_title:
+    # Get the job titles for the specified company
+    job_titles = list(job_listings_by_company_title[company_name].keys())
+    print("Job titles for", company_name + ":", job_titles)
+else:
+    print("Company", company_name, "not found.")
+
+3
+Extract Job Details by ID
+
+Create a function named get_job_details_by_id() that takes a job ID as an argument and returns the job details as a dictionary. If the job ID is not found, return None.
+
+The definition of the function should look like this:
+
+def get_job_details_by_id(job_id):
+    # Your code goes here
+Returned dictionary should have the following structure:
+
+{
+    'type': ...,
+    'location': ...,
+    'criteria': ...,
+    'posted_date': ...,
+    'link': ...
+}
+Correct
+def get_job_details_by_id(job_id):
+    if str(job_id) in job_details_by_id:
+        return job_details_by_id[str(job_id)]
+    else:
+        return None
+4
+Find Companies with Remote Jobs
+
+Find all the companies that have remote jobs. Store the company names in a list named remote_companies. The company names should be unique.
+
+Correct
+remote_companies = []
+
+# Iterate over the companies
+for company_name in job_listings_by_company_title:
+    # Iterate over the job titles
+    for job_title in job_listings_by_company_title[company_name]:
+        # Get the job details
+        job_details = get_job_details_by_id(job_listings_by_company_title[company_name][job_title]['id'])
+        # Check if the job is remote
+        if job_details['type'] == 'remote':
+            # Check if the company name is already in the list
+            if company_name not in remote_companies:
+                # Add the company name to the list
+                remote_companies.append(company_name)
+
+print("Companies with remote jobs:", remote_companies)
+5
+Calculate the Average Salary
+
+Calculate the average salary of all the jobs listed. Round the answer to the nearest integer and input the answer as an integer.
+
+70523
+Correct
+total_salary = 0
+total_jobs = 0
+
+# Iterate over the companies
+for company_name in job_listings_by_company_title:
+    # Iterate over the job titles
+    for job_title in job_listings_by_company_title[company_name]:
+        # Get the job details
+        job_details = get_job_details_by_id(job_listings_by_company_title[company_name][job_title]['id'])
+        # Check if the job has a salary
+        if job_listings_by_company_title[company_name][job_title]['salary'] != None:
+            # Add the salary to the total salary
+            total_salary += job_listings_by_company_title[company_name][job_title]['salary']
+            # Increment the total number of jobs
+            total_jobs += 1
+
+# Calculate the average salary
+average_salary = total_salary / total_jobs
+print("Average salary:", round(average_salary))
+6
+Find the Highest Salary
+
+Find the highest salary of all the jobs listed. Round the answer to the nearest integer and input the answer as an integer.
+
+99786
+Correct
+def highest_salary(job_listings_by_company_title):
+    highest_salary = 0
+    try:
+        for company in job_listings_by_company_title.values():
+            for job in company.values():
+                salary = job.get('salary')
+                if salary and salary > highest_salary:
+                    highest_salary = salary
+    except Exception as e:
+        print(f"An error occurred: {e}")
+    return round(highest_salary)
+
+print("Highest salary:", highest_salary(job_listings_by_company_title))
+7
+Find the Company with the Most Job Listings
+
+Find the company with the most job listings and input the company name as a string. If there are multiple companies with the same number of job listings, input the company name that comes first in alphabetical order.
+
+Experian
+Correct
+most_job_listings = 0
+company_name_with_most_job_listings = ""
+
+# Iterate over the companies
+for company_name in job_listings_by_company_title:
+    # Get the number of job listings for the company
+    number_of_job_listings = len(job_listings_by_company_title[company_name])
+    # Check if the number of job listings is higher than the highest number of job listings
+    if number_of_job_listings > most_job_listings:
+        # Update the highest number of job listings
+        most_job_listings = number_of_job_listings
+        # Update the company name with the most job listings
+        company_name_with_most_job_listings = company_name
+    # Check if the number of job listings is equal to the highest number of job listings
+    elif number_of_job_listings == most_job_listings:
+        # Check if the company name comes first in alphabetical order
+        if company_name < company_name_with_most_job_listings:
+            # Update the company name with the most job listings
+            company_name_with_most_job_listings = company_name
+
+print("Company with the most job listings:", company_name_with_most_job_listings)
+print("Number of job listings:", most_job_listings)
+8
+Job Type Distribution
+
+Create a function named get_job_type_distribution() that takes a company name as an argument and returns a dictionary containing the job type distribution for the company. The keys of the dictionary should be the job types and the values should be the number of jobs for each job type. If the company name is not found, return None.
+
+The definition of the function should look like this:
+
+def get_job_type_distribution(company_name):
+    # Your code goes here
+Returned dictionary should have the following structure:
+
+{
+    'onsite': ...,
+    'remote': ...,
+    'hybrid': ...
+}
+Correct
+def get_job_type_distribution(company_name):
+    if company_name in job_listings_by_company_title:
+        job_type_distribution = {
+            'onsite': 0,
+            'remote': 0,
+            'hybrid': 0
+        }
+        # Iterate over the job titles
+        for job_title in job_listings_by_company_title[company_name]:
+            # Get the job details
+            job_details = get_job_details_by_id(job_listings_by_company_title[company_name][job_title]['id'])
+            # Increment the job type count
+            job_type_distribution[job_details['type']] += 1
+        return job_type_distribution
+    else:
+        return None
+9
+Location Statistics
+
+Create a function named get_location_statistics() that takes a company name as an argument and returns a dictionary containing the location statistics for the company. The keys of the dictionary should be the locations and the values should be the number of jobs for each location. If the company name is not found, return None.
+
+The definition of the function should look like this:
+
+def get_location_statistics(company_name):
+    # Your code goes here
+Returned dictionary should have the following structure:
+
+{
+    location: ...
+    ...
+}
+Correct
+def get_location_statistics(company_name):
+    if company_name in job_listings_by_company_title:
+        location_statistics = {}
+        # Iterate over the job titles
+        for job_title in job_listings_by_company_title[company_name]:
+            # Get the job details
+            job_details = get_job_details_by_id(job_listings_by_company_title[company_name][job_title]['id'])
+            # Get the location
+            location = job_details['location']
+            # Check if the location is already in the dictionary
+            if location in location_statistics:
+                # Increment the location count
+                location_statistics[location] += 1
+            else:
+                # Add the location to the dictionary
+                location_statistics[location] = 1
+        return location_statistics
+    else:
+        return None
+10
+Salary Range Distribution
+
+Categorize the jobs into salary ranges. Create a dictionary named salary_range_distribution that contains the salary range distribution for all the jobs listed. The keys of the dictionary should be the salary ranges and the values should be the number of jobs for each salary range.
+
+The salary ranges should be as follows:
+
+(0, 50000): "0-50k",
+(50000, 75000): "50-75k",
+(75000, 100000): "75-100k",
+(100000, float('inf')): "Above 100k"
+The salary ranges are inclusive of the lower bound and exclusive of the upper bound. For example, the salary range (0, 50000) includes all the salaries greater than or equal to 0 and less than 50000. The salary range (100000, float('inf')) includes all the salaries greater than or equal to 100000.
+
+The expected output is as follows:
+
+salary_range_distribution: {
+    (0, 50000): 15,
+    (50000, 75000): 49,
+    (75000, 100000): 45,
+    (100000, float('inf')): 0
+}
+This is example output. Your output may be different.
+
+Correct
+salary_range_distribution = {
+    (0, 50000): 0,
+    (50000, 75000): 0,
+    (75000, 100000): 0,
+    (100000, float('inf')): 0
+}
+
+# Iterate over the companies
+for company_name in job_listings_by_company_title:
+    # Iterate over the job titles
+    for job_title in job_listings_by_company_title[company_name]:
+        # Get the job details
+        job_details = get_job_details_by_id(job_listings_by_company_title[company_name][job_title]['id'])
+        # Check if the job has a salary
+        if job_listings_by_company_title[company_name][job_title]['salary'] != None:
+            # Get the salary
+            salary = job_listings_by_company_title[company_name][job_title]['salary']
+            # Check if the salary is in the first salary range
+            if salary >= 0 and salary < 50000:
+                # Increment the salary range count
+                salary_range_distribution[(0, 50000)] += 1
+            # Check if the salary is in the second salary range
+            elif salary >= 50000 and salary < 75000:
+                # Increment the salary range count
+                salary_range_distribution[(50000, 75000)] += 1
+            # Check if the salary is in the third salary range
+            elif salary >= 75000 and salary < 100000:
+                # Increment the salary range count
+                salary_range_distribution[(75000, 100000)] += 1
+            # Check if the salary is in the fourth salary range
+            elif salary >= 100000:
+                # Increment the salary range count
+                salary_range_distribution[(100000, float('inf'))] += 1
+
+print("Salary range distribution:", salary_range_distribution)
+11
+Apply Salary Increment
+
+Apply a 10% salary increment to all the jobs listed and update the dictionary.
+
+If you encounter failure even after incrementing the salary, try re-reading the dictionaries job_listings_by_company_title and job_details_by_id once again.
+
+Correct
+# Iterate over the companies
+for company_name in job_listings_by_company_title:
+    # Iterate over the job titles
+    for job_title in job_listings_by_company_title[company_name]:
+        # Get the job details
+        job_details = get_job_details_by_id(job_listings_by_company_title[company_name][job_title]['id'])
+        # Check if the job has a salary
+        if job_listings_by_company_title[company_name][job_title]['salary'] != None:
+            # Apply a 10% salary increment
+            job_listings_by_company_title[company_name][job_title]['salary'] *= 1.1
+12
+Find all jobs in a specific location.
+
+Create a function named get_jobs_by_location() that takes a location as an argument and returns a list containing job ids.
+
+The definition of the function should look like this:
+
+def get_jobs_by_location(location):
+    # Your code goes here
+The returned list should have distinct values of ids. If there are no jobs with given location then return empty list.
+
+Correct
+def get_jobs_by_location(location):
+    job_ids = []
+
+    for id, job_detail in job_details_by_id.items():
+        if job_detail['location'] == location:
+            job_ids.append(id)
+
+    return job_ids
+13
+Remove Job Listings by Location
+
+Remove all the job listings for the location Johannesburg, Gauteng, South Africa from both the dictionary job_listings_by_company_title and job_details_by_id and update the dictionary.
+
+Correct
+def remove_jobs_by_location(location, job_details_by_id, job_listings_by_company_title):
+    # Get the job IDs for the location
+    job_ids = [job_id for job_id, details in job_details_by_id.items() if details['location'] == location]
+
+    # Remove items from job_details_by_id
+    for job_id in job_ids:
+        if job_id in job_details_by_id:
+            del job_details_by_id[job_id]
+
+    # Remove items from job_listings_by_company_title
+    for company, job_list in job_listings_by_company_title.items():
+        for job_title, job_detail in dict(job_list).items():
+            if str(job_detail['id']) in job_ids:
+                del job_listings_by_company_title[company][job_title]
+
+remove_jobs_by_location('Johannesburg, Gauteng, South Africa', job_details_by_id, job_listings_by_company_title)
+14
+Create Company Name Abbreviations
+
+Create a function named get_company_name_abbreviation() that takes a company name as an argument and returns the abbreviation of the company name. If the company name is not found, return None.
+
+The definition of the function should look like this:
+
+def get_company_name_abbreviation(company_name):
+    # Your code goes here
+Abbreviation is calculated using first letter from word of the company name.
+
+For example, the abbreviation of IBM is I, the abbreviation of Experian is E, the abbreviation of Progressive Edge is PE, and the abbreviation of Ovations Technologies (Pty) Ltd is OTPL.
+
+Correct
+import re
+def get_company_name_abbreviation(company_name):
+    if company_name in job_listings_by_company_title:
+        # Remove characters other than alphabets and spaces from company name
+        company_name = re.sub(r'[^a-zA-Z\s]', '', company_name)
+        # Convert the company name to uppercase
+        company_name = company_name.upper()
+        # Initialize the abbreviation 
+        abbreviation = ""
+        # Split the company name into words
+        words = company_name.split()
+        # Iterate over the words
+        for word in words:
+            # Get the first letter of the word
+            abbreviation += word[0]
+        return abbreviation
+
+    else:
+        return None
+15
+Create a dictionary of Company name and abbreviation.
+
+Create a dictionary named company_name_abbreviation that contains the company names and their abbreviations. The keys of the dictionary should be the company names, and the values should be the abbreviations.
+
+The expected dictionary looks like the following:
+
+company_name_abbreviation: {
+    'IBM': 'I',
+    'Experian': 'E',
+    'Progressive Edge': 'PE',
+    'Ovations Technologies (Pty) Ltd': 'OTPL',
+    ...
+}
+Correct
+company_name_abbreviation = {}
+
+# Iterate over the companies
+for company_name in job_listings_by_company_title:
+    # Get the abbreviation of the company name
+    abbreviation = get_company_name_abbreviation(company_name)
+    # Add the company name and abbreviation to the dictionary
+    company_name_abbreviation[company_name] = abbreviation
+
+print("Company name abbreviation:", company_name_abbreviation)
