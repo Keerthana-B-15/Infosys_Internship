@@ -1,0 +1,202 @@
+1
+Total number of grade A students
+
+Loop through the students tuple and find the total number of students with grade A.
+
+Enter your answer in below as integer.
+
+23
+Correct
+2
+Matching Grades and Student Counts
+
+Construct a nested tuple named grade_count that stores pairs of grades and their corresponding counts of students with that grade.
+
+Your tuple should follow this structure(grade, count)(grades arranged in ascending order):
+
+grade_count = (
+    ('A', 23),
+    ('B', 24),
+    ('C', 22),
+    ('D', 15),
+    ('E', 0),
+    ('F', 16))
+Note that this is an illustrative example, and your actual solution will follow a similar pattern.
+
+Correct
+3
+Create a new tuple containing the names of students with grades 'F'
+
+Create a new tuple named failed_students sorted alphabetically that contains the names of students with grades F.
+
+Correct
+4
+Sort the students tuple based on student names in ascending order.
+
+Sort the students tuple based on student names in ascending order and store the result in a new tuple named sorted_students.
+
+If the tuple is like below:
+
+students = (
+    (1, 2), 
+    ('Joseph Mendoza', 'Carlos Green'), 
+    ('1818 Guzman Court Suite 712\nEast Carolyntown, IN 32206', '80276 Paul Trace\nSouth Chad, GA 46047'),
+    ('A', 'B')
+)
+Then the sorted tuple should look like below:
+
+sorted_students = (
+    (2, 1),
+    ('Carlos Green', 'Joseph Mendoza'),
+    ('80276 Paul Trace\nSouth Chad, GA 46047',
+    '1818 Guzman Court Suite 712\nEast Carolyntown, IN 32206'),
+    ('B', 'A')
+)
+Correct
+5
+Split the students tuple into two separate tuples containing the first and last 50 students.
+
+Split the students tuple into two separate tuples containing the first and last 50 students, respectively. Store the first 50 students in a tuple named first_half and the last 50 students in a tuple named second_half.
+
+Correct
+6
+Find the address of the student with the name 'Stephanie Harris' in the students tuple.
+
+Find the address of the student with the name 'Stephanie Harris' in the students tuple.
+
+Enter the address below input box as string.
+
+If there are multiple students with same name input the address of the students who occur first.
+
+Any newlines (\n) must be replaced with a single space.
+
+ USNV Flores FPO AA 48241
+Correct
+7
+Check if the grade E exists in the students tuple
+
+Check if the grade E exists in the students tuple.
+
+
+Grade E is not present.
+
+
+Grade E is present.
+
+Correct
+8
+Find the index of the first occurrence of grade 'B' in the students tuple.
+
+Find the index of the first occurrence of grade B in the students tuple.
+
+Enter you answer as integer.
+
+3
+Correct
+9
+Find the index of the last occurrence of grade 'C' in the students tuple.
+
+Find the index of the last occurrence of grade C in the students tuple.
+
+Enter you answer as integer.
+
+98
+Correct
+10
+Create a new tuple containing the names of students with names longer than 15 characters.
+
+Create a new tuple named long_names that contains the names of students with names longer than 15 characters.
+
+Correct
+11
+Remove the student with the name 'Daniel Golden' from the students tuple.
+
+Remove the student with the name 'Daniel Golden' from the students tuple.
+
+If there are multiple students with name Daniel then remove the first occurence.
+
+If you not able to pass the activity even after correct solution then try again reading students data.
+
+The tuples are immutable, meaning that even though we're updating them, we're creating new tuples to take the place of the old ones.
+
+Correct
+12
+Name the first student who has grade D
+
+Name the first student who has grade D.
+
+Enter the name below input box as string.
+
+Troy Bailey
+Correct
+13
+Replace the grade of the student named 'Kevin Mccormick DVM' with 'B' in the students tuple.
+
+Replace the grade of the student named 'Kevin Mccormick DVM' with 'B' in the students tuple.
+
+If there are multiple students with name Kevin Mccormick DVM then replace the grade of the first occurence.
+
+Note that, tuples are immutable, we need to create a new tuples to take the place of the old ones.
+
+Correct
+kevin_mccormick_dvm_index = students[1].index('Kevin Mccormick DVM')
+
+students = (
+    students[0],
+    students[1],
+    students[2],
+    students[3][:kevin_mccormick_dvm_index] + ('B',) + students[3][kevin_mccormick_dvm_index + 1:]
+)
+14
+Add new students
+
+I think you noticed there are no students with grade E, so let's add 6 students with grade E in the students tuple. Below are the details of six students:
+
+student_ids = (100, 101, 102, 103, 104, 105)
+student_names = ('John Doe', 'Twinkle Khanna', 'Jackson', 'Sunny Deol', 'Narendra Modi', 'Rahul Gandhi')
+student_address = (
+    "123, Gali No. 4, Sarai Rohilla, New Delhi, Delhi, 110007",
+    "456, MG Road, Shivaji Nagar, Bangalore, Karnataka, 560001",
+    "789, Park Street, Park Circus, Kolkata, West Bengal, 700017",
+    "987, Jubilee Hills, Banjara Hills, Hyderabad, Telangana, 500033",
+    "654, Mount Road, Anna Salai, Chennai, Tamil Nadu, 600002",
+    "321, MG Road, Civil Lines, Jaipur, Rajasthan, 302001"
+)
+student_grades = ('E', 'E', 'E', 'E', 'E', 'E')
+Add these students detail at the end of the tuple.
+
+Correct
+student_ids = (100, 101, 102, 103, 104, 105)
+student_names = ('John Doe', 'Twinkle Khanna', 'Jackson', 'Sunny Deol', 'Narendra Modi', 'Rahul Gandhi')
+student_address = (
+    "123, Gali No. 4, Sarai Rohilla, New Delhi, Delhi, 110007",
+    "456, MG Road, Shivaji Nagar, Bangalore, Karnataka, 560001",
+    "789, Park Street, Park Circus, Kolkata, West Bengal, 700017",
+    "987, Jubilee Hills, Banjara Hills, Hyderabad, Telangana, 500033",
+    "654, Mount Road, Anna Salai, Chennai, Tamil Nadu, 600002",
+    "321, MG Road, Civil Lines, Jaipur, Rajasthan, 302001"
+)
+student_grades = ('E', 'E', 'E', 'E', 'E', 'E')
+
+
+students = (
+    students[0] + student_ids,
+    students[1] + student_names,
+    students[2] + student_address,
+    students[3] + student_grades
+)
+15
+Store Details in a Separate Variable
+
+Store all the student ids in a variable named ids, names in names, address in address, and grades in grades. All these variables are of type tuple.
+
+Make sure to not change the order of details of students.
+
+Correct
+ids = students[0]
+names = students[1]
+address = students[2]
+grades = students[3]
+You can also use unpacking method to store details in seperate variables as below:
+
+ids, names, address, grades = students
